@@ -1,0 +1,27 @@
+#mySidenav p {
+  position: absolute;
+  right: -155px;
+  transition: 0.3s;
+  padding: 15px;
+  width: 200px;
+  text-decoration: none;
+  font-size: 20px;
+  color: white;
+  border-radius: 5px 0px 0px 5px;
+}
+
+#mySidenav p:hover {
+  right: 0;
+}
+
+
+
+#achat {
+  top: 140px;
+  background-color: #f44336;
+}
+
+#depot {
+  top: 500px;
+  background-color: #555
+}
