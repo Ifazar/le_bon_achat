@@ -4,12 +4,20 @@
 
     <%= simple_form_for [@product] do |t| %>
       <%= t.input :title, label: "Nom de votre object" %>
-      <%= t.select :category, ["", "", ""] %>
+      <%= t.select :category, {
+        "Divertissement" => [ ["Jeux/Jouet/Jeux de société"], ["Livre/BD/Manga"] ],
+        "Electrique" => [ ["Electroménager"], ["Télévision/Ecran/Enceinte"] ],
+        "Mobilier" => [ ["Intérieur" => [ ["Canapé/Fauteil"], ["Commode/Etagére"], ["Chaise"] ]],
+                          ["Exterieur"]],
+        "Jardinage" => [ ["Pot/Mobilier"], ["Outils"] ],
+        "Sport" => [ ["Vélo"], ["Matériel en tout genre"]],
+      },
+      selected: "Divertissement" %>
       <%= t.input :detail, label: "Détails descriptifs" %>
       <%= t.select :condition, ["Très Bon", "Bon", "Moyen", "Usagé"] %>
       <%= t.input :image, as: :file, label: "Photo de votre objet" %>
 
-     <%# Coder le calcul du Prix %>
+      <%# <<%= "votre bon d'achat pour cette objet est de" price "Euros" %>> %>
 
       <%= t.submit %>
     <% end %>
