@@ -1,0 +1,23 @@
+<div>
+  <div>
+  <h1>Ajoutez votre Objet:</h1>
+
+    <%= simple_form_for [@product] do |t| %>
+      <%= t.input :title, label: "Nom de votre object" %>
+      <%= t.select :category, ["", "", ""] %>
+      <%= t.input :detail, label: "Détails descriptifs" %>
+      <%= t.select :condition, ["Très Bon", "Bon", "Moyen", "Usagé"] %>
+      <%= t.input :image, as: :file, label: "Photo de votre objet" %>
+
+     <%# Coder le calcul du Prix %>
+
+      <%= t.submit %>
+    <% end %>
+  </div>
+
+
+
+<div>
+  <%= link_to "Annuler", product_path %>
+
+</div>
