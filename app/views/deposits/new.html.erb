@@ -1,23 +1,31 @@
 <div>
   <div>
-  <h1>Ajoutez votre Objet:</h1>
+  <h1 data-controller="test">Ajoutez votre Objet:</h1>
 
     <%= simple_form_for [@product] do |t| %>
-      <%= t.input :title, label: "Nom de votre object" %>
-      <%= t.select :category, {
-        "Divertissement" => [ ["Jeux/Jouet/Jeux de société"], ["Livre/BD/Manga"] ],
-        "Electrique" => [ ["Electroménager"], ["Télévision/Ecran/Enceinte"] ],
-        "Mobilier" => [ ["Intérieur" => [ ["Canapé/Fauteil"], ["Commode/Etagére"], ["Chaise"] ]],
-                          ["Exterieur"]],
-        "Jardinage" => [ ["Pot/Mobilier"], ["Outils"] ],
-        "Sport" => [ ["Vélo"], ["Matériel en tout genre"]],
-      },
-      selected: "Divertissement" %>
-      <%= t.input :detail, label: "Détails descriptifs" %>
-      <%= t.select :condition, ["Très Bon", "Bon", "Moyen", "Usagé"] %>
-      <%= t.input :image, as: :file, label: "Photo de votre objet" %>
 
-      <%# <<%= "votre bon d'achat pour cette objet est de" price "Euros" %>> %>
+      <%= t.input :title, label: "Nom de votre object" %>
+
+      <div class="buttoneffect", onchange="updatePrice()">
+      <%= t.select :category,
+        {
+        "Divertissement" => [["Jeux/Jouet/Jeux de société"], ["Livre/BD/Manga"]],
+        "Electrique" => [["Electroménager"], ["Télévision/Ecran/Enceinte"]],
+        "Mobilier" => [["Canapé/Fauteil"], ["Commode/Etagére"], ["Chaise"], ["Exterieur"]],
+        "Jardinage" => [["Pot/Mobilier"], ["Outils"]],
+        "Sport" => [["Vélo"], ["Matériel en tout genre"]],
+        },
+        selected: "Divertissement", class: "buttoneffect", onchange: "updatePrice()" %>
+      </div>
+
+      <%= t.input :detail, label: "Détails descriptifs" %>
+
+      <div class="buttoneffect", onchange="updatePrice()">
+      <%= t.select :condition, ["Très Bon", "Bon", "Moyen", "Usagé"] %>
+      </div>
+      <%= t.input :picture1, as: :file, label: "Photo de votre objet" %>
+
+      <span id="priceDisplay">Prix : </span>
 
       <%= t.submit %>
     <% end %>
@@ -25,7 +33,66 @@
 
 
 
-<div>
+  <div>
   <%= link_to "Annuler", root_path %>
+  </div>
 
-</div>
+<script>
+const buttons = document.querySelectorAll(".buttoneffect");
+console.log(buttons)
+
+buttons.forEach(button => {
+  button.addEventListener("click", (event) => {
+    console.log(event);
+    console.log(event.currentTarget);
+    // Appelle la fonction pour mettre à jour le prix ici
+    updatePrice();
+  });
+});
+
+function updatePrice() {
+  // Récupérer les valeurs sélectionnées dans les formulaires
+  const selectedCategory = document.querySelector('[name="t[category]"]').value;
+  const selectedCondition = document.querySelector('[name="t[condition]"]').value;
+
+  // Calculer le prix en utilisant ces valeurs
+  const price = calculatePrice(selectedCategory, selectedCondition);
+
+  // Mettre à jour le contenu de la balise <span>
+  document.getElementById("priceDisplay").innerText = `Prix : ${price} €`;
+}
+
+// Nouvelle fonction pour calculer le prix
+function calculatePrice(category, condition) {
+  switch (condition) {
+    case "Très Bon":
+    switch (category) {
+      case "Divertissement": return "7";
+      case "Electrique":
+      case "Sport": return "30";
+      default: return "20";
+    }
+    case "Bon":
+    switch (category) {
+      case "Divertissement": return "4";
+      case "Electrique":
+      case "Sport": return "20";
+      default: return "15";
+    }
+    case "Moyen":
+    switch (category) {
+      case "Divertissement": return "2";
+      case "Electrique":
+      case "Sport": return "15";
+      default: return "10";
+    }
+    default:
+    switch (category) {
+      case "Divertissement": return "1";
+      case "Electrique":
+      case "Sport": return "10";
+      default: return "5";
+    }
+  }
+}
+</script>
