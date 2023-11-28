@@ -1,7 +1,7 @@
 class DepositsController < ApplicationController
   def show
     @user = current_user
-    @product = Product.find(params[:id])
+    # @product = Product.find(params[:id])
   end
 
   def new
