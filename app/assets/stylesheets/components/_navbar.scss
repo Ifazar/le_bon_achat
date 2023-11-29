@@ -11,6 +11,19 @@
   width: 40px;
 }
 
+.navbar-img {
+  width: 80px;
+  // border-radius: 51% 49% 56% 44% / 29% 37% 63% 71%;
+  border: 2px solid black;
+}
 
+.navbar-title {
+  font-size: 20px;
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+}
 
 
