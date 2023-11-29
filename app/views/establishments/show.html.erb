@@ -1,0 +1,25 @@
+<p><%= @establishment.name %></p>
+
+
+
+
+<div>
+  <h3>Nos produits disponibles</h3>
+  <div>
+    <% if @products.any? %>
+      <% @products.each do |product| %>
+        <ul>
+
+            <%= product.title %>
+            <%= product.category %>
+            <%= product.detail %>
+            <%= product.condition %>
+            <%= product.price %>
+          
+        </ul>
+      <% end %>
+    <% else %>
+      <p>No products available</p>
+    <% end %>
+  </div>
+</div>
