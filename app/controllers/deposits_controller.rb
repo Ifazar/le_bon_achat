@@ -1,18 +1,19 @@
 class DepositsController < ApplicationController
   def show
     @user = current_user
-    # @product = Product.find(params[:id])
+    @product = Product.find(params[:id])
   end
 
   def new
     @product = Product.new
+    @deposit = Deposit.new
   end
 
   def create
     @product = Product.new(product_params)
     @product.user = current_user
     if @product.save
-      redirect_to product_path(@product)
+      redirect_to deposit_path(@product)
     else
       render :new, status: :unprocessable_entity
     end
@@ -29,5 +30,5 @@ class DepositsController < ApplicationController
   def product_params
     params.require(:product).permit(:title, :category, :detail, :condition, :price)
   end
-  
+
 end
