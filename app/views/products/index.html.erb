@@ -4,35 +4,32 @@
   <div class="info_container col-6">
 
     <div class='cards'>
-      <div class='card'>
-        <div class='card-container'>
-          <h2>Scifi</h2>
-          <p>sensations occurring in a person's mind during sleep</p>
+
+      <% @products.limit(3).each do |product| %>
+        <div class='card'>
+          <div class='card-container'>
+            <h2><%= product.title %></h2>
+            <p><%= product.category %></p>
+            <p><%= product.price %>€</p>
+          </div>
         </div>
-      </div>
-      <div class='card'>
-        <div class='card-container'>
-          <h2>Mystery</h2>
-          <p>A feeling or state of intense excitement and happiness</p>
-        </div>
-      </div>
-      <div class='card'>
-        <div class='card-container'>
-          <h2>Thriller</h2>
-          <p>pleases the aesthetic senses especially the sight</p>
-        </div>
-      </div>
+      <% end %>
+
     </div>
 
-    <div class="map_container_home">
-      <p>inserer map</p>
+    <div class="map_container_home overflow-auto">
+      <div style="width: 100%; height: 300px;"
+        data-controller="map"
+        data-map-markers-value="<%= @markers.to_json %>"
+        data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+      </div>
 
 
       <div>
         <p>Vos adresses proches de chez vous:</p>
         <% @establishments.each do |establishment|%>
           <ul>
-            <%= establishment.name %>
+            <%= link_to establishment.name, establishment_path(establishment), class:"" %>
             <%= establishment.address %>
           </ul>
         <% end %>
@@ -57,18 +54,11 @@
   </div>
 
   <div id="mySidenav" class="sidenav">
-    <%= link_to"📦 -  Dépôt", new_deposit_path, method: :get, class: "depot" %><br>
-    <%= link_to "🛒 - Achat", "#", method: :get, class:"achat" %>
+    <%= link_to"📦 -  Dépôt", new_deposit_path, method: :get, class: "depot", id:"depot" %><br><br><br>
+    <%= link_to "🛒 - Achat", "#", method: :get, class:"achat", id:"achat" %>
     <%# <p id="achat"> 🛒 - Achat</p> %>
     <%# <p href="" id="depot"> 📦 - Dépôt</p> %>
   </div>
-  <footer>
-    © 2023 LE BON ACHAT. Tous droits réservés.
-    <div class="social-icons">
-        <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
-        <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
-        <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
-    </div>
-  </footer>
+
 
 </div>
