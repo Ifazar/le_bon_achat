@@ -13,6 +13,10 @@ Rails.application.routes.draw do
   root to: 'products#index'
 
   resources :users
-  resources :establishments
-  resources :products
+  resources :establishments do
+    resources :products
+  end
+  resources :products do
+    resources :establishment, only: [:index]
+  end
 end

@@ -26,6 +26,17 @@
 
     <div class="map_container">
       <p>inserer map</p>
+
+
+      <div>
+        <p>Vos adresses proches de chez vous:</p>
+        <% @establishments.each do |establishment|%>
+          <ul>
+            <%= establishment.name %>
+            <%= establishment.address %>
+          </ul>
+        <% end %>
+      </div>
     </div>
 
   </div>
@@ -46,8 +57,10 @@
   </div>
 
   <div id="mySidenav" class="sidenav">
-    <p id="achat"> 🛒 - Achat</p>
-    <p href="" id="depot"> 📦 - Dépôt</p>
+    <%= link_to"📦 -  Dépôt", new_deposit_path, method: :get, class: "depot" %><br>
+    <%= link_to "🛒 - Achat", "#", method: :get, class:"achat" %>
+    <%# <p id="achat"> 🛒 - Achat</p> %>
+    <%# <p href="" id="depot"> 📦 - Dépôt</p> %>
   </div>
   <footer>
     © 2023 LE BON ACHAT. Tous droits réservés.

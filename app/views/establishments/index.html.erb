@@ -1,0 +1,12 @@
+
+<div>
+  <% @establishments.each do |establishment|%>
+    <ul>
+      <%= establishment.name %>
+      <%= establishment.address %>
+      <%= establishment.phone_number %>
+      <%= establishment.email %>
+    </ul>
+  <% end %>
+</div>
+ 
