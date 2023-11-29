@@ -7,4 +7,5 @@ class Product < ApplicationRecord
   validates :category, presence: true
   validates :detail, presence: true
   validates :condition, presence: true
+
 end
