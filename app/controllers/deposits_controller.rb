@@ -29,4 +29,5 @@ class DepositsController < ApplicationController
   def product_params
     params.require(:product).permit(:title, :category, :detail, :condition, :price)
   end
+  
 end

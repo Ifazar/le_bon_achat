@@ -20,3 +20,4 @@ Rails.application.routes.draw do
     resources :establishment, only: [:index]
   end
 end
+

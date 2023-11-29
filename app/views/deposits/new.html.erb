@@ -1,23 +1,53 @@
-<div>
-  <div>
-  <h1>Ajoutez votre Objet:</h1>
+<div data-controller="calcul">
+    <h1>Ajoutez votre Objet:</h1>
 
     <%= simple_form_for [@product] do |t| %>
-      <%= t.input :title, label: "Nom de votre object" %>
-      <%= t.select :category, ["", "", ""] %>
-      <%= t.input :detail, label: "Détails descriptifs" %>
-      <%= t.select :condition, ["Très Bon", "Bon", "Moyen", "Usagé"] %>
-      <%= t.input :image, as: :file, label: "Photo de votre objet" %>
+      <%= t.input :title, label: "Nom de votre objet" %>
 
-     <%# Coder le calcul du Prix %>
+      <div data-action="click->calcul#updatePrice" id="category">
+        <%= t.select :category,
+          {
+            "Divertissement" => [["Jeux/Jouet/Jeux de société"], ["Livre/BD/Manga"]],
+            "Electrique" => [["Electroménager"], ["Télévision/Ecran/Enceinte"]],
+            "Mobilier" => [["Canapé/Fauteuil"], ["Commode/Etagére"], ["Chaise"], ["Exterieur"]],
+            "Jardinage" => [["Pot/Mobilier"], ["Outils"]],
+            "Sport" => [["Vélo"], ["Matériel en tout genre"]],
+          },
+          selected: "Divertissement", class: "buttoneffect" %>
+      </div>
+
+      <%= t.input :detail, label: "Détails descriptifs" %>
+
+      <div data-action="click->calcul#updatePrice" id="condition">
+        <%= t.select :condition, ["Très Bon", "Bon", "Moyen", "Usagé"] %>
+      </div>
+
+      <div data-action="change->calcul#addPicture1" id="picture1">
+      <%= t.input :picture1, as: :file, label: "Photo de votre objet" %>
+      </div>
+      <div data-action="change->calcul#addPicture2" id="picture2">
+      <%= t.input :picture2, as: :file, label: "Photo de votre objet" %>
+      </div>
+      <div id="picture3">
+      <%= t.input :picture3, as: :file, label: "Photo de votre objet" %>
+      </div>
+
+      <span id="priceDisplay" data-calcul-target="results"> </span>
 
       <%= t.submit %>
     <% end %>
   </div>
 
-
-
-<div>
-  <%= link_to "Annuler", root_path %>
-
+  <div>
+    <%= link_to "Annuler", root_path %>
+  </div>
 </div>
+
+  <style>
+  #picture2 {
+            display: none;
+  }
+  #picture3 {
+            display: none;
+  }
+  </style>
