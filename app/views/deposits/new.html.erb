@@ -22,13 +22,15 @@
         <%= t.select :condition, ["Très Bon", "Bon", "Moyen", "Usagé"] %>
       </div>
 
-      <div data-action="change->calcul#addPicture" id="picture1">
+      <div data-action="change->calcul#addPicture1" id="picture1">
       <%= t.input :picture1, as: :file, label: "Photo de votre objet" %>
       </div>
-      <div data-action="sumit->calcul#addPicture" id="picture2">
-      <span id="newImage" data-calcul-target="picture2"> </span>
+      <div data-action="change->calcul#addPicture2" id="picture2">
+      <%= t.input :picture2, as: :file, label: "Photo de votre objet" %>
       </div>
-      <span id="newImage2" data-calcul-target="picture3"> </span>
+      <div id="picture3">
+      <%= t.input :picture3, as: :file, label: "Photo de votre objet" %>
+      </div>
 
       <span id="priceDisplay" data-calcul-target="results"> </span>
 
@@ -40,3 +42,12 @@
     <%= link_to "Annuler", root_path %>
   </div>
 </div>
+
+  <style>
+  #picture2 {
+            display: none;
+  }
+  #picture3 {
+            display: none;
+  }
+  </style>
