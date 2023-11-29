@@ -6,7 +6,7 @@ export default class extends Controller {
   }
   static targets = ["results", "picture2", "hash"]
 
-
+  
   updatePrice(event) {
 
     const hashTest = {
@@ -39,33 +39,33 @@ export default class extends Controller {
 
       switch (condition) {
         case "Très Bon":
-          switch (category) {
-            case "Divertissement": return "7";
-            case "Electrique":
-            case "Sport": return "30";
-            default: return "20";
-          }
+        switch (category) {
+          case "Divertissement": return "7";
+          case "Electrique":
+          case "Sport": return "30";
+          default: return "20";
+        }
         case "Bon":
-          switch (category) {
-            case "Divertissement": return "4";
-            case "Electrique":
-            case "Sport": return "20";
-            default: return "15";
-          }
+        switch (category) {
+          case "Divertissement": return "4";
+          case "Electrique":
+          case "Sport": return "20";
+          default: return "15";
+        }
         case "Moyen":
-          switch (category) {
-            case "Divertissement": return "2";
-            case "Electrique":
-            case "Sport": return "15";
-            default: return "10";
-          }
+        switch (category) {
+          case "Divertissement": return "2";
+          case "Electrique":
+          case "Sport": return "15";
+          default: return "10";
+        }
         default:
-          switch (category) {
-            case "Divertissement": return "1";
-            case "Electrique":
-            case "Sport": return "10";
-            default: return "5";
-          }
+        switch (category) {
+          case "Divertissement": return "1";
+          case "Electrique":
+          case "Sport": return "10";
+          default: return "5";
+        }
       }
 
     }
@@ -75,17 +75,15 @@ export default class extends Controller {
     document.getElementById("priceDisplay").innerText = `Votre Coupon : ${price} €`;
   }
 
-
-
-
-  addPicture() {
-    console.log("calcul controller 2 connected")
-
-    // document.getElementById("newImage").innerText = t.input :picture2, as: :file, label: "Photo de votre objet"
-
-
-    // document.getElementById("newImage2").innerText = 't.input :picture3, as: :file, label: "Photo de votre objet"'
-
+  addPicture1() {
+    var element = document.getElementById("picture2")
+    console.log(element)
+    element.style.display = "block"
+  }
+  addPicture2() {
+    var element = document.getElementById("picture3")
+    console.log(element)
+    element.style.display = "block"
   }
 
 }
