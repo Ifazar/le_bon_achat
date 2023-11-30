@@ -1,12 +1,13 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  connect() {
-    console.log("calcul controller 1 connected")
-  }
   static targets = ["results", "picture2", "hash"]
 
-  
+  connect() {
+    console.log("calcul controller 1 connected")
+
+  }
+
   updatePrice(event) {
 
     const hashTest = {
@@ -71,8 +72,14 @@ export default class extends Controller {
     }
     // Calculer le prix en utilisant ces valeurs
     const price = calculatePrice(selectedCategory, selectedCond);
+
     // Mettre à jour le contenu de la balise <span>
-    document.getElementById("priceDisplay").innerText = `Votre Coupon : ${price} €`;
+    // document.getElementById("priceDisplay").innerText = `Votre Coupon : ${price} €`;
+
+    this.resultsTarget.innerText = `Votre Coupon : ${price} €`;
+    const calculatedPriceInput = document.getElementById("calculatedPriceInput");
+    calculatedPriceInput.value = price;
+
   }
 
   addPicture1() {

@@ -1,6 +1,7 @@
 class DepositsController < ApplicationController
-  def show
+
+  def index
     @user = current_user
-    @product = Product.find(params[:id])
+    @products = Product.all
   end
 end
