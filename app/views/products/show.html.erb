@@ -21,16 +21,16 @@
 
   <p>Votre coupon:</p>
   <p> - <%= @product.price %>€ </p>
-</div>
-
-
 
   <div class="btn_deposits" id="Valid">
     <%= button_to "Voir les Objets de votre dépot", deposits_path, method: :get, class:"btn btn-outline-success" %>
   </div>
-
   <div class="btn_deposits" id="Retour">
     <%= button_to "Déposer un autre Objet",  new_product_path, method: :get, class:"btn btn-outline-success" %>
   </div>
+
+</div>
+
+
 
 </div>
