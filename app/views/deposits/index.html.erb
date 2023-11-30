@@ -1,0 +1,43 @@
+<div class="deposits_body">
+
+  <div class="resum_deposits col-8">
+    <p>Votre dépôt comprend :</p>
+    <p> - <%=  %> </p>
+    <p> - Detail product</p>
+    <p> - Detail product</p>
+    <p>Pour un total de X coupons:</p>
+    <p> - <%=  %>€ </p>
+  </div>
+
+
+  <div class="reservation_deposits col-2">
+    <p>Date de dépôt :</p>
+    <p>Vour pouvez effectuer votre dépôt entre le <%= Time.now.strftime("%d/%m/%Y") %> et le <%= (Time.now + 15.days).strftime("%d/%m/%Y") %></p>
+    <p>à l'adresse suivante :</p>
+    <p>TELLE ETABLISSEMENT</p>
+    <p>xx de la rue</p>
+    <p>CP - VILLE</p>
+  </div>
+
+  <div class="map_container_deposits col-2">
+    <p>insert map</p>
+  </div>
+
+
+  <div class="btn_deposits" id="Valid">
+    <%= button_to "Valider",  root_path, class:"btn btn-outline-success" %>
+  </div>
+
+  <div class="btn_deposits" id="Retour">
+    <%= button_to "Annuler",  root_path, class:"btn btn-outline-success" %>
+  </div>
+
+
+  <div>
+     <div style="width: 100%; height: 300px;"
+        data-controller="map"
+        data-map-markers-value="<%= @marker.to_json %>"
+        data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+      </div>
+  </div>
+</div>
