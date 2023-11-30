@@ -1,35 +1,24 @@
-<div class="deposits_body">
+<div class="products_body">
 
   <div class="resum_deposits col-8">
-    <p>Votre dépôt comprend :</p>
+    <p>Votre Produit :</p>
     <p> - <%= @product.title %> </p>
-    <p> - Detail product</p>
-    <p> - Detail product</p>
-    <p>Pour un total de X coupons:</p>
+    <p> - <%= @product.category %> </p>
+    <p> - <%= @product.condition %> </p>
+    <p> <%= @product.picture1 %> </p>
+    <p> <%= @product.picture2 %> </p>
+    <p> <%= @product.picture3 %> </p>
+    <p>Votre coupon:</p>
     <p> - <%= @product.price %>€ </p>
   </div>
 
 
-  <div class="reservation_deposits col-2">
-    <p>Date de dépôt :</p>
-    <p>Vour pouvez effectuer votre dépôt entre le <%= Time.now.strftime("%d/%m/%Y") %> et le <%= (Time.now + 15.days).strftime("%d/%m/%Y") %></p>
-    <p>à l'adresse suivante :</p>
-    <p>TELLE ETABLISSEMENT</p>
-    <p>xx de la rue</p>
-    <p>CP - VILLE</p>
-  </div>
-
-  <div class="map_container_deposits col-2">
-    <p>insert map</p>
-  </div>
-
-
   <div class="btn_deposits" id="Valid">
-    <%= button_to "Valider",  root_path, class:"btn btn-outline-success" %>
+    <%= button_to "Voir les Objets de votre dépot", deposits_path, method: :get, class:"btn btn-outline-success" %>
   </div>
 
   <div class="btn_deposits" id="Retour">
-    <%= button_to "Annuler",  root_path, class:"btn btn-outline-success" %>
+    <%= button_to "Déposer un autre Objet",  new_product_path, method: :get, class:"btn btn-outline-success" %>
   </div>
 
 
