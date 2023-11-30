@@ -1,5 +1,5 @@
 .sidenav  {
-  position: absolute;
+  position: fixed;
   right: -90px;
   transition: 0.3s;
   // padding: 15px;
@@ -8,17 +8,23 @@
   // font-size: 20px;
   // color: white;
   // border-radius: 5px 0px 0px 5px;
+  justify-content: space-between;
 }
 
-.sidenav:hover {
-  right: 0px;
+// .sidenav:hover {
+//   right: 0px;
+// }
+
+
+#depot:hover {
+  right: 40px;
 }
 
-
-
-.achat {
-  top: 500px;
-  background-color: #f44336;
+.depot {
+  position: absolute;
+  right: -60px;
+  top: 140px;
+  background-color: #555;
   text-decoration: none;
   padding: 15px;
   width: 200px;
@@ -27,9 +33,15 @@
   border-radius: 5px 0px 0px 5px;
 }
 
-.depot {
-  top: 140px;
-  background-color: #555;
+#achat:hover {
+  right: 40px;
+}
+
+.achat {
+  position: absolute;
+  top: 500px;
+  right: -60px;
+  background-color: #f44336;
   text-decoration: none;
   padding: 15px;
   width: 200px;

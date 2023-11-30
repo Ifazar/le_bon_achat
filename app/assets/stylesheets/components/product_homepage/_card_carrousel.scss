@@ -19,7 +19,7 @@
   gap: 1.5rem;
   place-items: center;
   height: 75vh;
-
+  justify-content: center;
 }
 
 .card {
@@ -30,6 +30,7 @@
   overflow: hidden;
   box-shadow: 0 3px 15px rgba(0,0,0,0.3);
   transition: width 0.5s ease-out;
+
 
   &:hover {
     width: var(--width);
@@ -61,8 +62,8 @@
     transition: transform 0.5s ease-in;
   }
 
-  &:nth-of-type(1):before { background-image: url('https://www.t-bird.fr/110-large_default/riviera-bleu-m.jpg'); }
-  &:nth-of-type(3):before { background-image: url('https://images.unsplash.com/photo-1610322231968-31322d42851f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2236&q=80'); }
+  &:nth-of-type(1):before { background-image: url(''); }
+  &:nth-of-type(3):before { background-image: url(''); }
 
   & .card-container {
     position: absolute;
@@ -71,7 +72,7 @@
     transform: translateX(-50%);
     text-align: center;
     font: 900 1rem helvetica,sans-serif;
-    color: white;
+    color: rgb(26, 5, 5);
 
     & h2 {
       font-size: 1.1rem;
@@ -87,7 +88,7 @@
       font-size: 0.75rem;
       font-weight: 100;
       line-height: 1.6;
-      color: rgba(255,255,255,0.75);
+      color: rgba(0, 0, 0, 0.75);
       margin-top: 0.5rem;
       padding: 0 1.2rem;
       transform: translateY(2rem);

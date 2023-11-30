@@ -15,11 +15,21 @@
             <%= product.detail %>
             <%= product.condition %>
             <%= product.price %>
-          
+
         </ul>
       <% end %>
     <% else %>
       <p>No products available</p>
     <% end %>
   </div>
+</div>
+
+
+
+<div>
+     <div style="width: 60%; height: 300px;"
+        data-controller="map"
+        data-map-markers-value="<%= @marker.to_json %>"
+        data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+      </div>
 </div>
