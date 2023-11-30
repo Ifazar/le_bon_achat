@@ -70,11 +70,18 @@
       var picture2 = $("input[name='product[picture2]']").val();
       var picture3 = $("input[name='product[picture3]']").val();
 
+      var picturesSummary = '';
+      if (picture1 || picture2 || picture3) {
+        picturesSummary = `
+          <p><strong>Photos:</strong> ${picture1} ${picture2} ${picture3}</p>
+        `;
+      }
+
       $("#product-details").html(`
         <p><strong>Nom de l'objet:</strong> ${productName}</p>
         <p><strong>Catégorie:</strong> ${category}</p>
         <p><strong>État:</strong> ${condition}</p>
-        <p><strong>Photos:</strong> ${picture1}, ${picture2}, ${picture3}</p>
+        ${picturesSummary}
       `);
     }
 
