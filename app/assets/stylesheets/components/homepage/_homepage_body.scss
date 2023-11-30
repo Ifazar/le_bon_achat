@@ -7,3 +7,10 @@
   overflow-x: hidden;
   overflow-y: hidden;
 }
+
+.app_container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  justify-content: space-between;
+}
