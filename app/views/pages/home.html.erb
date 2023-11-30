@@ -33,6 +33,7 @@
       <div>
         <p>Vos adresses proches de chez vous:</p>
         <% @establishments.each do |establishment|%>
+          <% next if establishment.id == 1 %>
           <ul>
             <%= link_to establishment.name, establishment_path(establishment), class:"" %>
             <%= establishment.address %>

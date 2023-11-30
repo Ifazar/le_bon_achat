@@ -9,24 +9,27 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
     <link href="https://api.mapbox.com/mapbox-gl-js/v2.11.0/mapbox-gl.css" rel="stylesheet">
-    
+
 
   </head>
 
   <body>
-    <%= render "shared/navbar" %>
-    <%= render "shared/flashes" %>
+    <div class="app_container">
 
-    <%= yield %>
+      <%= render "shared/navbar" %>
+      <%= render "shared/flashes" %>
 
+      <%= yield %>
+
+      <footer>
+        © 2023 LE BON ACHAT. Tous droits réservés.
+        <div class="social-icons">
+            <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+        </div>
+      </footer>
+    </div>
   </body>
 
-   <footer>
-    © 2023 LE BON ACHAT. Tous droits réservés.
-    <div class="social-icons">
-        <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
-        <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
-        <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
-    </div>
-  </footer>
 </html>

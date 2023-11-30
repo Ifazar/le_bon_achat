@@ -87,6 +87,7 @@
 end
 # Creating Establishments
 establishments_data = [
+  {name: "tampon", address: "#", phone_number: "#", email: "#"},
   { name: "Recyclerie du Lombric", address: "9 Rue de la Plaine de la Croix Besnard, 77000 Vaux-le-Pénil", phone_number: "01xxxxxxxx", email: "contact@lombric.com" },
   { name: "Melun Centre", address: "22 Rue Paul Doumer, 77000 Melun", phone_number: "01xxxxxxxx", email: "info@meluncentre.com" },
   { name: "Zone Activité", address: "9 Rte de Nangis, 77000 Melun", phone_number: "01xxxxxxxx", email: "contact@zoneactivite.com" }
