@@ -34,7 +34,7 @@ export default class extends Controller {
     this.increment = 40;
     this.cur = 0;
 
-    const btns = this.containerTarget.querySelectorAll('.btn');
+    const btns = this.containerTarget.querySelectorAll('.btn-carousel');
 
     btns.forEach((btn) => {
       btn.addEventListener('click', (event) => {
