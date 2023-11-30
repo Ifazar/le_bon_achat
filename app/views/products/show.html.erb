@@ -2,16 +2,17 @@
 
   <div class="resum_deposits col-8">
     <p>Votre dépôt comprend :</p>
+    <p> - <%= @product.title %> </p>
     <p> - Detail product</p>
     <p> - Detail product</p>
-    <p> - Detail product</p>
-    <p>Pour un total de X coupons.</p>
+    <p>Pour un total de X coupons:</p>
+    <p> - <%= @product.price %>€ </p>
   </div>
 
 
   <div class="reservation_deposits col-2">
     <p>Date de dépôt :</p>
-    <p>Vour pouvez effectuer votre dépôt entre le xx-xx-xxxx et le xx-xx-xxxx</p>
+    <p>Vour pouvez effectuer votre dépôt entre le <%= Time.now.strftime("%d/%m/%Y") %> et le <%= (Time.now + 15.days).strftime("%d/%m/%Y") %></p>
     <p>à l'adresse suivante :</p>
     <p>TELLE ETABLISSEMENT</p>
     <p>xx de la rue</p>

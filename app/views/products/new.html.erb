@@ -32,7 +32,11 @@
       <%= t.input :picture3, as: :file, label: "Photo de votre objet" %>
       </div>
 
-      <span id="priceDisplay" data-calcul-target="results"> </span>
+
+      <%= t.hidden_field :price, id: "calculatedPriceInput" %>
+       <span id="priceDisplay" data-calcul-target="results">
+      </span>
+
 
       <%= t.submit %>
     <% end %>
