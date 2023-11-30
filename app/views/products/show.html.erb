@@ -1,16 +1,28 @@
 <div class="products_body">
 
   <div class="resum_deposits col-8">
-    <p>Votre Produit :</p>
-    <p> - <%= @product.title %> </p>
-    <p> - <%= @product.category %> </p>
-    <p> - <%= @product.condition %> </p>
-    <p> <%= @product.picture1 %> </p>
-    <p> <%= @product.picture2 %> </p>
-    <p> <%= @product.picture3 %> </p>
-    <p>Votre coupon:</p>
-    <p> - <%= @product.price %>€ </p>
-  </div>
+  <p>Votre Produit :</p>
+  <p> - <%= @product.title %> </p>
+  <p> - <%= @product.category %> </p>
+  <p> - <%= @product.condition %> </p>
+
+  <% if @product.picture1.present? || @product.picture2.present? || @product.picture3.present? %>
+    <p>Photos :</p>
+    <% if @product.picture1.present? %>
+      <p> - <%= @product.picture1 %> </p>
+    <% end %>
+    <% if @product.picture2.present? %>
+      <p> - <%= @product.picture2 %> </p>
+    <% end %>
+    <% if @product.picture3.present? %>
+      <p> - <%= @product.picture3 %> </p>
+    <% end %>
+  <% end %>
+
+  <p>Votre coupon:</p>
+  <p> - <%= @product.price %>€ </p>
+</div>
+
 
 
   <div class="btn_deposits" id="Valid">
@@ -21,6 +33,4 @@
     <%= button_to "Déposer un autre Objet",  new_product_path, method: :get, class:"btn btn-outline-success" %>
   </div>
 
-
-  
 </div>
