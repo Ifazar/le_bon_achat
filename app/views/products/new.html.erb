@@ -38,81 +38,29 @@
       </span>
 
 
-      <%= t.submit %>
+  <button type="button" id="show-popup-button" data-action="click->calcul#showPopup">Afficher le récapitulatif</button>
     <% end %>
 
   <div>
     <%= link_to "Annuler", root_path %>
   </div>
-</div>
 
-<div id="overlay"></div>
+  <div id="overlay"></div>
 
 
-<div id="summary-popup" style="display: none;">
-  <h2>Récapitulatif du dépôt</h2>
-  <div id="product-details">
-    <!-- Les détails du produit seront affichés ici -->
+  <div id="summary-popup" style="display: none;">
+    <h2>Récapitulatif du dépôt</h2>
+    <div id="product-details">
+      <!-- Les détails du produit seront affichés ici -->
+    </div>
+    <button id="refuse-button" data-action="click->calcul#onCancel">Refuser</button>
+    <button id="validate-button"data-action="click->calcul#onValidate">Accepter</button>
+
   </div>
-  <button id="refuse-button">Refuser</button>
-  <button id="validate-button">Accepter</button>
 
 </div>
 
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-<script>
-  $(document).ready(function() {
-    function updateSummary() {
-      var productName = $("input[name='product[title]']").val();
-      var category = $("#product_category option:selected").text();
-      var condition = $("select[name='product[condition]']").val();
-      var picture1 = $("input[name='product[picture1]']").val();
-      var picture2 = $("input[name='product[picture2]']").val();
-      var picture3 = $("input[name='product[picture3]']").val();
-
-      var picturesSummary = '';
-      if (picture1 || picture2 || picture3) {
-        picturesSummary = `
-          <p><strong>Photos:</strong> ${picture1} ${picture2} ${picture3}</p>
-        `;
-      }
-
-      $("#product-details").html(`
-        <p><strong>Nom de l'objet:</strong> ${productName}</p>
-        <p><strong>Catégorie:</strong> ${category}</p>
-        <p><strong>État:</strong> ${condition}</p>
-        ${picturesSummary}
-      `);
-    }
-
-    function showPopup() {
-      updateSummary();
-      $("#overlay, #summary-popup").show();
-    }
-
-    function hidePopup() {
-      $("#overlay, #summary-popup").hide();
-    }
-
-
-    $("form").submit(function(event) {
-      event.preventDefault();
-      showPopup();
-    });
-
-    $("#refuse-button").click(function() {
-      hidePopup();
-      window.location.href = '<%= new_product_path %>'; // Redirige vers la page d'annulation
-    });
-
-    $("#validate-button").click(function() {
-      hidePopup();
-      $("form").off("submit").submit();
-    });
-
-    $("#overlay").click(hidePopup);
-  });
-</script>
 
 
 <style>
