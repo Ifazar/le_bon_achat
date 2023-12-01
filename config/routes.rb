@@ -19,4 +19,10 @@ Rails.application.routes.draw do
   resources :products do
     resources :establishment, only: [:index]
   end
+
+  resources :establishments do
+    member do
+      patch 'confirme'
+    end
+  end
 end
