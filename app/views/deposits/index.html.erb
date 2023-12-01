@@ -15,12 +15,12 @@
               <p><%= product.price %>€</p>
             </div>
           </div>
+          <div>
+            <%= button_to "Supprimer", deposit_path(product), method: :delete, data: { confirm: 'Are you sure?' },  class:"btn btn-outline-warning" %>
+          </div>
         <% end %>
       </div>
-
-      <div>
-        <%= button_to "Supprimer", deposit_path(product), method: :delete, data: { confirm: 'Are you sure?' },  class:"btn btn-outline-warning" %>
-      </div>
+   
 
 
       <p>Le total de vos coupons:</p>
