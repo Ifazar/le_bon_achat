@@ -1,13 +1,16 @@
 class EstablishmentsController < ApplicationController
   def index
     @establishments = Establishment.all
+    @establishments.drop(1)
     @products = Product.all
 
-    @marker =
-    {
-      lat: @establishment.latitude,
-      lng: @establishment.longitude
-    }
+
+    @marker = @establishments.geocoded.map do |establishment|
+      {
+        lat: establishment.latitude,
+        lng: establishment.longitude
+      }
+    end
   end
 
   def show

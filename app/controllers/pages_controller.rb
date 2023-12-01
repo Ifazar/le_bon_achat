@@ -5,6 +5,7 @@ class PagesController < ApplicationController
 
     @products = Product.all
     @establishments = Establishment.all
+    @establishments.drop(1)
     @markers = @establishments.geocoded.map do |establishment|
       {
         lat: establishment.latitude,
