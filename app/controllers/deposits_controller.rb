@@ -4,6 +4,7 @@ class DepositsController < ApplicationController
     @user = current_user
     @products = @user.products
     @total_price = @products.sum { |product| product.price.to_i }
+    @tickets = Ticket.all
     @establishments = Establishment.all
     @establishments.drop(1)
 
@@ -19,5 +20,8 @@ class DepositsController < ApplicationController
     @product = Product.find(params[:id])
     @product.destroy
     redirect_to deposits_path, status: :see_other
+
   end
+
+
 end

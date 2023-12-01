@@ -21,6 +21,14 @@ class UsersController < ApplicationController
       render :new
     end
   end
+  
+  def increment
+    @ticket = Ticket.find(params[:id])
+    @user = current_user
+    @products = @user.products
+    @products.update_all(ticket_id: @ticket.last + 1)
+    redirect_to user_path, notice: 'Ticket créé avec succès.'
+  end
 
   private
 

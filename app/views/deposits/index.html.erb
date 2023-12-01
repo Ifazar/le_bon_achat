@@ -2,47 +2,59 @@
 
   <div class="resum_deposits col-8">
     <p>Votre dépôt comprend :</p>
-     <div class="index-container ">
-    <% @products.each do |product| %>
-
-      <div class="cards" >
-        <%# <%= cl_image_tag product.picture1.key, class:" rounded-5", height: 150, width: 200, crop: :fill if product.picture1.attached? %>
-        <div class="card-body">
-          <h4><%= link_to product.title, product_path(product), class:"cutlink" %></h4>
-          <p><%= product.detail %></p>
-          <p><%= product.condition %></p>
-          <p><%= product.category %></p>
-          <p><%= product.price %>€</p>
-        </div>
+    <% if @products.any? { |product| product.ticket_id == 1 } %>
+      <div class="index-container ">
+        <% @products.each do |product| %>
+          <div class="cards" >
+            <%# <%= cl_image_tag product.picture1.key, class:" rounded-5", height: 150, width: 200, crop: :fill if product.picture1.attached? %>
+            <div class="card-body">
+              <h4><%= link_to product.title, product_path(product) %></h4>
+              <p><%= product.detail %></p>
+              <p><%= product.condition %></p>
+              <p><%= product.category %></p>
+              <p><%= product.price %>€</p>
+            </div>
+          </div>
+        <% end %>
       </div>
+
       <div>
         <%= button_to "Supprimer", deposit_path(product), method: :delete, data: { confirm: 'Are you sure?' },  class:"btn btn-outline-warning" %>
       </div>
+
+
+      <p>Le total de vos coupons:</p>
+      <p> - <%= @total_price %>€ </p>
 
     <% end %>
 
   </div>
 
-    <p>Le total de vos coupons:</p>
-    <p> - <%= @total_price %>€ </p>
-  </div>
-
-
   <div class="reservation_deposits col-2">
     <p>Date de dépôt :</p>
     <p>Vour pouvez effectuer votre dépôt entre le <%= Time.now.strftime("%d/%m/%Y") %> et le <%= (Time.now + 15.days).strftime("%d/%m/%Y") %></p>
-    <p>Dans l'un des établissement suivant :</p>
-    <p>Cliquez sur létablissement où vous désirez apporter votre dépot:</p>
-    <p>Vos adresses proches de chez vous:</p>
+    <% if @products.any? { |product| product.establishment_id == 1 } %>
+      <p>Dans l'un des établissement suivant :</p>
+      <p>Cliquez sur létablissement où vous désirez apporter votre dépot:</p>
+      <p>Vos adresses proches de chez vous:</p>
+    <% end %>
     <div>
-        <% @establishments.each do |establishment|%>
-        <% next if establishment.id == 1 %>
-          <ul>
-            <%= establishment.name %>
-            <%# <%= button_to establishment.name, confirme_establishment_product_path(establishment), method: :patch, class: 'btn btn-success' %>
 
+      <% chosen_establishments = [] %>
+      <% @establishments.each do |establishment|%>
+        <% next if establishment.id == 1 %>
+        <% if @products.any? { |product| product.establishment_id == 1 } %>
+          <ul>
+            <%= button_to establishment.name, confirme_establishment_path(establishment), method: :patch, class: 'btn btn-success' %>
             <%= establishment.address %>
           </ul>
+          <% chosen_establishments << establishment %>
+        <% end %>
+      <% end %>
+        <% if chosen_establishments.empty? && @products.any? { |product| product.establishment_id != 1 } %>
+          <p>L'établissement que vous avez choisit :</p>
+          <%= @products.find { |product| product.establishment_id != 1 }.establishment.name %>
+          <%= @products.find { |product| product.establishment_id != 1 }.establishment.address %>
         <% end %>
       </div>
   </div>
@@ -55,18 +67,10 @@
     </div>
   </div>
 
-
   <div class="btn_deposits" id="Valid">
-    <%= link_to "Valider",  user_path, class:"btn btn-outline-success" %>
+
+    <%= link_to "Valider",  increment_user_path(@tickets), method: :patch, class:"btn btn-outline-success" %>
   </div>
-
-  <div class="btn_deposits" id="Retour">
-    <%= link_to "Annuler",  new_product_path, class:"btn btn-outline-success" %>
-  </div>
-
-
-
-
 
 
    <div id="mySidenav" class="sidenav">
@@ -74,5 +78,6 @@
     <%= link_to "🛒 - Achat", "#", method: :get, class:"achat", id:"achat" %>
     <%# <p id="achat"> 🛒 - Achat</p> %>
     <%# <p href="" id="depot"> 📦 - Dépôt</p> %>
-  </div>
+   </div>
+
 </div>

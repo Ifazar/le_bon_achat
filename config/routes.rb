@@ -14,19 +14,24 @@ Rails.application.routes.draw do
   resources :products, only: [:show, :new, :create]
   resources :deposits
 
-  resources :users
+  resources :users do
+    member do
+      patch 'increment'
+    end
+  end
+
   resources :establishments do
     resources :products
   end
   resources :products do
     resources :establishment, only: [:index]
   end
+
+
   resources :establishments do
-    resources :reservations do
-      member do
-        patch 'confirme'
-        patch 'refuse'
-      end
+    member do
+      patch 'confirme'
+
     end
   end
 end

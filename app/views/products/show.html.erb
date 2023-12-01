@@ -1,6 +1,6 @@
 <div class="products_body">
 
-  <div class="resum_deposits col-8">
+  <div class="recap_body col-8">
   <p>Votre Produit :</p>
   <p> - <%= @product.title %> </p>
   <p> - <%= @product.category %> </p>
@@ -20,7 +20,13 @@
   <% end %>
 
   <p>Votre coupon:</p>
-  <p> - <%= @product.price %>€ </p>
+
+  <div class="ticket">
+    <div class="content">
+    <span class="coupon">Votre coupon est de :</span>
+    <span class="price"> <%= @product.price %> €</span>
+    </div>
+  </div>
 
   <div class="btn_deposits" id="Valid">
     <%= button_to "Voir les Objets de votre dépot", deposits_path, method: :get, class:"btn btn-outline-success" %>
@@ -34,3 +40,47 @@
 
 
 </div>
+
+
+<style>
+
+.ticket {
+  position: relative;
+  background: linear-gradient(45deg, #b30000, #e68a00);
+  width: 300px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+  -webkit-mask-image: radial-gradient(circle at 29px 50%, transparent 29px, red 29.5px);
+  -webkit-mask-position: -29px;
+}
+
+.header {
+  text-align: center;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.coupon {
+  display: block;
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.price {
+  font-size: 24px;
+  font-weight: bold;
+  color: black;
+  display: flex;
+  align-items: center;
+}
+
+</style>
