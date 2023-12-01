@@ -1,6 +1,6 @@
 <div class="products_body">
 
-  <div class="resum_deposits col-8">
+  <div class="recap_body col-8">
   <p>Votre Produit :</p>
   <p> - <%= @product.title %> </p>
   <p> - <%= @product.category %> </p>
@@ -46,7 +46,7 @@
 
 .ticket {
   position: relative;
-  background-color: purple;
+  background: linear-gradient(45deg, #b30000, #e68a00);
   width: 300px;
   padding: 20px;
   border-radius: 10px;
@@ -60,22 +60,16 @@
   text-align: center;
 }
 
-.logo {
-  font-size: 18px;
-  font-weight: bold;
-  color: #ff0000;
-}
-
 .content {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 .coupon {
   display: block;
-  font-size: 36px;
+  font-size: 20px;
   font-weight: bold;
   margin-bottom: 20px;
   text-align: center;
@@ -84,7 +78,9 @@
 .price {
   font-size: 24px;
   font-weight: bold;
-  color: #ff0000;
-  justify-content: center;
+  color: black;
+  display: flex;
+  align-items: center;
 }
+
 </style>
