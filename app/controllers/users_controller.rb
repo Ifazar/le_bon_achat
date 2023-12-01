@@ -11,6 +11,11 @@ class UsersController < ApplicationController
   def show
     @user = current_user
     @user = User.find(params[:id])
+    @ticket = Ticket.find(params[:id])
+    @products = @user.products
+    @tickets = @user.tickets
+    # @establishment = Establishment.find(params[:id])
+
   end
 
   def create
@@ -21,13 +26,21 @@ class UsersController < ApplicationController
       render :new
     end
   end
-  
+
   def increment
-    @ticket = Ticket.find(params[:id])
-    @user = current_user
-    @products = @user.products
-    @products.update_all(ticket_id: @ticket.last + 1)
-    redirect_to user_path, notice: 'Ticket créé avec succès.'
+    @products = current_user.products
+    @total_price = @products.select {|product| product.ticket_id == 1}.sum { |product| product.price.to_i }
+    @ticket = Ticket.new(color: "Green", user: current_user, price: @total_price)
+
+    if @ticket.save
+      @products.select {|product| product.ticket_id == 1}.each do |product|
+        product.update(ticket_id: @ticket.id)
+      end
+      redirect_to user_path(current_user), notice: 'Ticket créé avec succès.'
+    else
+      render :show, status: :unprocessable_entity
+    end
+
   end
 
   private
@@ -35,4 +48,5 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:email, :password, :password_confirmation)
   end
+
 end
