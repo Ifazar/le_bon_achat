@@ -5,7 +5,8 @@ class DepositsController < ApplicationController
     @products = @user.products
     @total_price = @products.sum { |product| product.price.to_i }
     @establishments = Establishment.all
+    @tickets = Ticket.all
   end
 
-  
+
 end
