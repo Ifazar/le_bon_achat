@@ -10,15 +10,12 @@ Rails.application.routes.draw do
 
   devise_for :users
   root to: "pages#home"
+  resources :users
 
   resources :products, only: [:show, :new, :create]
   resources :deposits
-
-  resources :users do
-    member do
-      patch 'increment'
-    end
-  end
+  
+  post 'increment' => "users#increment"
 
   resources :establishments do
     resources :products
@@ -31,7 +28,6 @@ Rails.application.routes.draw do
   resources :establishments do
     member do
       patch 'confirme'
-
     end
   end
 end
