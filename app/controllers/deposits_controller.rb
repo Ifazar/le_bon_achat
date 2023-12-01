@@ -6,4 +6,6 @@ class DepositsController < ApplicationController
     @total_price = @products.sum { |product| product.price.to_i }
     @establishments = Establishment.all
   end
+
+  
 end

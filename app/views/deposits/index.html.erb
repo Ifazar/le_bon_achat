@@ -8,7 +8,7 @@
       <div class="cards" >
         <%# <%= cl_image_tag product.picture1.key, class:" rounded-5", height: 150, width: 200, crop: :fill if product.picture1.attached? %>
         <div class="card-body">
-          <h4><%= link_to product.title, product_path(product), class:"cutlink" %></h4>
+          <h4><%= link_to product.title, product_path(product) %></h4>
           <p><%= product.detail %></p>
           <p><%= product.condition %></p>
           <p><%= product.category %></p>
@@ -27,17 +27,27 @@
   <div class="reservation_deposits col-2">
     <p>Date de dépôt :</p>
     <p>Vour pouvez effectuer votre dépôt entre le <%= Time.now.strftime("%d/%m/%Y") %> et le <%= (Time.now + 15.days).strftime("%d/%m/%Y") %></p>
-    <p>Dans l'un des établissement suivant :</p>
-    <p>Cliquez sur létablissement où vous désirez apporter votre dépot:</p>
-    <p>Vos adresses proches de chez vous:</p>
+    <% if @products.any? { |product| product.establishment_id == 1 } %>
+      <p>Dans l'un des établissement suivant :</p>
+      <p>Cliquez sur létablissement où vous désirez apporter votre dépot:</p>
+      <p>Vos adresses proches de chez vous:</p>
+    <% end %>
     <div>
-        <% @establishments.each do |establishment|%>
+      <% chosen_establishments = [] %>
+      <% @establishments.each do |establishment|%>
+        <% next if establishment.id == 1 %>
+        <% if @products.any? { |product| product.establishment_id == 1 } %>
           <ul>
-            <%= establishment.name %>
-            <%# <%= button_to establishment.name, confirme_establishment_product_path(establishment), method: :patch, class: 'btn btn-success' %>
-
+            <%= button_to establishment.name, confirme_establishment_path(establishment), method: :patch, class: 'btn btn-success' %>
             <%= establishment.address %>
           </ul>
+          <% chosen_establishments << establishment %>
+        <% end %>
+      <% end %>
+        <% if chosen_establishments.empty? && @products.any? { |product| product.establishment_id != 1 } %>
+          <p>L'établissement que vous avez choisit :</p>
+          <%= @products.find { |product| product.establishment_id != 1 }.establishment.name %>
+          <%= @products.find { |product| product.establishment_id != 1 }.establishment.address %>
         <% end %>
       </div>
   </div>
