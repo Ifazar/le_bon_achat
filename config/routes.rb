@@ -12,7 +12,12 @@ Rails.application.routes.draw do
   # root "posts#index"
   # root to: 'products#index'
 
-  resources :users
+  resources :users do
+    member do
+      patch 'increment'
+    end
+  end
+
   resources :establishments do
     resources :products
   end
