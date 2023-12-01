@@ -4,7 +4,6 @@ class EstablishmentsController < ApplicationController
     @establishments.drop(1)
     @products = Product.all
 
-
     @marker = @establishments.geocoded.map do |establishment|
       {
         lat: establishment.latitude,
@@ -15,12 +14,17 @@ class EstablishmentsController < ApplicationController
 
   def show
     @establishment = Establishment.find(params[:id])
+    @establishments = Establishment.all
     @products = @establishment.products
-    @marker =
-    {
-      lat: @establishment.latitude,
-      lng: @establishment.longitude
-    }
+
+    @marker = @establishments.geocoded.map do |establishment|
+      if establishment == @establishment
+        {
+          lat: establishment.latitude,
+          lng: establishment.longitude
+        }
+      end
+    end
   end
 
   def confirme
