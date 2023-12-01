@@ -1,4 +1,15 @@
 
-<h2>Vos depots</h2>
+<h2>Vos Tickets:</h2>
 
-
+<% @tickets.each do |ticket| %>
+  <p>Ticket #<%= ticket.id %></p>
+  <%= ticket.price %>
+  <ul>
+    <% ticket.products.each do |product| %>
+      <li><%= product.title %>
+      <%= product.detail %>
+      <%= product.condition %>
+      <%= product.category %></li>
+    <% end %>
+  </ul>
+<% end %>

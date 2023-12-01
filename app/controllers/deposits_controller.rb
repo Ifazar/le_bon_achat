@@ -3,7 +3,7 @@ class DepositsController < ApplicationController
   def index
     @user = current_user
     @products = @user.products
-    @total_price = @products.sum { |product| product.price.to_i }
+    @total_price = @products.select {|product| product.ticket_id == 1}.sum { |product| product.price.to_i }
     @tickets = Ticket.all
     @establishments = Establishment.all
     @establishments.drop(1)
@@ -22,6 +22,8 @@ class DepositsController < ApplicationController
     redirect_to deposits_path, status: :see_other
 
   end
+
+
 
 
 end
