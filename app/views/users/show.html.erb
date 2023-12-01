@@ -1,0 +1,8 @@
+
+<h2>Vos depots</h2>
+
+<% @ticket.each do |ticket|  %>
+<%= ticket.product.title %>
+<%= ticket.product.condition %>
+<%= ticket.product.price %>
+<% end %>

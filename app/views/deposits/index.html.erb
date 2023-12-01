@@ -15,8 +15,12 @@
           <p><%= product.price %>€</p>
         </div>
       </div>
+      <div>
+        <%= button_to "Supprimer", deposit_path(product), method: :delete, data: { confirm: 'Are you sure?' },  class:"btn btn-outline-warning" %>
+      </div>
 
     <% end %>
+
   </div>
 
     <p>Le total de vos coupons:</p>
@@ -32,6 +36,7 @@
     <p>Vos adresses proches de chez vous:</p>
     <div>
         <% @establishments.each do |establishment|%>
+        <% next if establishment.id == 1 %>
           <ul>
             <%= establishment.name %>
             <%# <%= button_to establishment.name, confirme_establishment_product_path(establishment), method: :patch, class: 'btn btn-success' %>
@@ -43,24 +48,31 @@
   </div>
 
   <div class="map_container_deposits col-2">
-    <p>insert map</p>
+    <div style="width: 100%; height: 300px;"
+      data-controller="map"
+      data-map-markers-value="<%= @marker.to_json %>"
+      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
   </div>
 
 
   <div class="btn_deposits" id="Valid">
-    <%= button_to "Valider",  root_path, class:"btn btn-outline-success" %>
+    <%= link_to "Valider",  user_path, class:"btn btn-outline-success" %>
   </div>
 
   <div class="btn_deposits" id="Retour">
-    <%= button_to "Annuler",  root_path, class:"btn btn-outline-success" %>
+    <%= link_to "Annuler",  new_product_path, class:"btn btn-outline-success" %>
   </div>
 
 
-  <div>
-     <div style="width: 100%; height: 300px;"
-        data-controller="map"
-        data-map-markers-value="<%= @marker.to_json %>"
-        data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-      </div>
+
+
+
+
+   <div id="mySidenav" class="sidenav">
+    <%= link_to"📦 -  Dépôt", new_product_path, method: :get, class: "depot", id:"depot" %><br><br><br>
+    <%= link_to "🛒 - Achat", "#", method: :get, class:"achat", id:"achat" %>
+    <%# <p id="achat"> 🛒 - Achat</p> %>
+    <%# <p href="" id="depot"> 📦 - Dépôt</p> %>
   </div>
 </div>
