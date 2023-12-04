@@ -1,19 +1,13 @@
-
-<div class ="homepage_body">
-
+<div class="homepage_body">
   <div class="info_container_left col-7">
-
-
-
     <div class="carousel_container" data-controller="carousel">
       <div class='container' id="container" data-carousel-target="container">
-        <div class="carousel" id="carousel" data-carousel-target="carousel" >
+        <div class="carousel" id="carousel" data-carousel-target="carousel">
           <!-- Your product rendering -->
           <% @products.limit(9).each do |product| %>
             <figure style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= product.image %>)">
-              <h5><%= link_to product.title, establishment_path(product.establishment),class:"text-decoration-none" %></h5>
+              <h5><%= link_to product.title, establishment_path(product.establishment), class:"text-decoration-none" %></h5>
               <p><%= product.price %>€</p>
-
             </figure>
           <% end %>
         </div>
@@ -22,14 +16,12 @@
       </div>
     </div>
 
-
     <div class="map_container_home overflow-auto">
       <div style="width: 100%; height: 300px;"
         data-controller="map"
         data-map-markers-value="<%= @markers.to_json %>"
         data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
       </div>
-
 
       <div>
         <p>Vos adresses proches de chez vous:</p>
@@ -42,29 +34,41 @@
         <% end %>
       </div>
     </div>
-
   </div>
 
   <div class="info_container_right col-5">
-
-    <div class="concept_coupon_info" id="concept">
-      <h2>Notre concept</h2>
-      <p>Nous vous proposons d'échanger des produits dont vous n'avez plus l'utiliter contre des bons, utilisable chez nous ou bien dans vos
-        enseigne favorite</p>
+    <div class="ag-format-container">
+      <div class="ag-courses_box">
+        <div class="ag-courses_item">
+          <a href="#" class="ag-courses-item_link">
+            <div class="ag-courses-item_bg"></div>
+            <div class="ag-courses-item_title">
+              <h2>Notre concept</h2>
+              <p>Nous vous proposons d'échanger des produits dont vous n'avez plus l'utilité contre des bons, utilisables chez nous ou bien dans vos enseignes favorites.</p>
+            </div>
+          </a>
+        </div>
+        <!-- Ajoutez d'autres éléments .ag-courses_item au besoin -->
+      </div>
     </div>
 
-    <div class="concept_coupon_info" id="coupon">
-      <h2>Les Coupons</h2>
+    <div class="ag-format-container">
+      <div class="ag-courses_box">
+        <div class="ag-courses_item">
+          <a href="#" class="ag-courses-item_link">
+            <div class="ag-courses-item_bg"></div>
+            <div class="ag-courses-item_title">
+              <h2>Les coupons</h2>
+            </div>
+          </a>
+        </div>
+        <!-- Ajoutez d'autres éléments .ag-courses_item au besoin -->
+      </div>
     </div>
 
+    <div id="mySidenav" class="sidenav">
+      <%= link_to"📦 -  Dépôt", new_product_path, method: :get, class: "depot", id:"depot" %><br><br><br>
+      <%= link_to "🛒 - Achat", "#", method: :get, class:"achat", id:"achat" %>
+    </div>
   </div>
-
-  <div id="mySidenav" class="sidenav">
-    <%= link_to"📦 -  Dépôt", new_product_path, method: :get, class: "depot", id:"depot" %><br><br><br>
-    <%= link_to "🛒 - Achat", "#", method: :get, class:"achat", id:"achat" %>
-    <%# <p id="achat"> 🛒 - Achat</p> %>
-    <%# <p href="" id="depot"> 📦 - Dépôt</p> %>
-  </div>
-
-
 </div>
