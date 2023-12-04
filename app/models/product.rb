@@ -8,4 +8,7 @@ class Product < ApplicationRecord
   validates :detail, presence: true
   validates :condition, presence: true
 
+  has_one_attached :picture1
+  has_one_attached :picture2
+  has_one_attached :picture3
 end

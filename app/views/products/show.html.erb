@@ -9,13 +9,13 @@
   <% if @product.picture1.present? || @product.picture2.present? || @product.picture3.present? %>
     <p>Photos :</p>
     <% if @product.picture1.present? %>
-      <p> - <%= @product.picture1 %> </p>
+      <p> - <%= cl_image_tag @product.picture1.key, class:" rounded-5", height: 150, width: 200 %> </p>
     <% end %>
     <% if @product.picture2.present? %>
-      <p> - <%= @product.picture2 %> </p>
+      <p> - <%= cl_image_tag @product.picture2.key, class:" rounded-5", height: 150, width: 200 %> </p>
     <% end %>
     <% if @product.picture3.present? %>
-      <p> - <%= @product.picture3 %> </p>
+      <p> - <%= cl_image_tag @product.picture3.key, class:" rounded-5", height: 150, width: 200 %> </p>
     <% end %>
   <% end %>
 
