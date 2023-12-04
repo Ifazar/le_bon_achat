@@ -4,20 +4,20 @@
 
 
 
-<div>
+<div class="product_container">
   <h3>Nos produits disponibles</h3>
-  <div>
+  <div >
     <% if @products.any? %>
       <% @products.each do |product| %>
-        <ul>
 
-            <%= product.title %>
-            <%= product.category %>
-            <%= product.detail %>
-            <%= product.condition %>
-            <%= product.price %>
-
-        </ul>
+        <div class="card-product">
+          <img src="" alt="">
+          <div class="card-product-infos">
+            <h2><%= product.title %></h2>
+            <p><%= product.condition %></p>
+          </div>
+          <h2><%= product.price %>€</h2>
+        </div>
       <% end %>
     <% else %>
       <p>No products available</p>

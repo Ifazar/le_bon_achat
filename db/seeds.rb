@@ -130,3 +130,4 @@ products_data.each do |product_data|
   )
 end
 puts "Seed data created successfully!"
+ 
