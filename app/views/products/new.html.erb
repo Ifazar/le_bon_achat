@@ -1,4 +1,4 @@
-<div data-controller="calcul">
+<div class="new_product" data-controller="calcul">
     <h1>Ajoutez votre Objet:</h1>
 
     <%= simple_form_for [@product] do |t| %>
@@ -41,7 +41,7 @@
   <button type="button" id="show-popup-button" data-action="click->calcul#showPopup">Afficher le récapitulatif</button>
     <% end %>
 
-  <div>
+  <div class="refuse-button">
     <%= link_to "Annuler", root_path %>
   </div>
 
@@ -54,8 +54,8 @@
       <!-- Les détails du produit seront affichés ici -->
     </div>
     <div class="button-container">
-      <button id="refuse-button" data-action="click->calcul#onCancel">Refuser</button>
-      <button id="validate-button"data-action="click->calcul#onValidate">Accepter</button>
+      <button class="refuse-button" data-action="click->calcul#onCancel">Refuser</button>
+      <button class="validate-button"data-action="click->calcul#onValidate">Accepter</button>
     </div>
 
   </div>
@@ -111,7 +111,7 @@
     margin-top: 15px;
   }
 
-  #refuse-button {
+  .refuse-button {
     background-color: #ff5858;
     color: #fff;
     padding: 10px 20px;
@@ -119,9 +119,11 @@
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s;
+    width: max-content;
+     margin: auto;
   }
 
-  #validate-button {
+  .validate-button {
     background-color: #4caf50;
     color: #fff;
     padding: 10px 20px;
