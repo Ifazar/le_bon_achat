@@ -10,11 +10,12 @@
     <% if @products.any? %>
       <% @products.each do |product| %>
 
-        <div class="card-product">
-          <img src="" alt="">
+        <div class="card-product" >
+
           <div class="card-product-infos">
             <h2><%= product.title %></h2>
             <p><%= product.condition %></p>
+            <p><%= image_tag product.image if product.image %></p>
           </div>
           <h2><%= product.price %>€</h2>
         </div>

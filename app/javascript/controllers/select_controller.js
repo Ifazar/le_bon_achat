@@ -8,7 +8,7 @@ export default class extends Controller {
 
   }
 
-  addEstablishment() {
+  buttonDisabled() {
     var element = document.getElementById("picture2")
     console.log(element)
     element.style.display = "block"

@@ -7,12 +7,13 @@
 
     <div class="carousel_container" data-controller="carousel">
       <div class='container' id="container" data-carousel-target="container">
-        <div class="carousel" id="carousel" data-carousel-target="carousel">
+        <div class="carousel" id="carousel" data-carousel-target="carousel" >
           <!-- Your product rendering -->
           <% @products.limit(9).each do |product| %>
-            <figure>
-              <h5><%= link_to product.title, establishment_path(product.establishment),class:"" %></h5>
+            <figure style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= product.image %>)">
+              <h5><%= link_to product.title, establishment_path(product.establishment),class:"text-decoration-none" %></h5>
               <p><%= product.price %>€</p>
+
             </figure>
           <% end %>
         </div>
