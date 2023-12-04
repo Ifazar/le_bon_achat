@@ -76,6 +76,7 @@
 #   puts "Created #{product.title}"
 # end
 # puts "Finished product!"
+require "open-uri"
 
 
 # Creating Users
@@ -106,14 +107,14 @@ end
 end
 # Creating Products
 products_data = [
-  { category: "Electronics", title: "Old Radio", detail: "Vintage radio from the 1950s", condition: "Used", price: 30 },
+  { category: "Electronics", title: "Old Radio", detail: "Vintage radio from the 1950s", condition: "Used", price: 30, image:"https://res.cloudinary.com/diffnfduk/image/upload/v1701689528/raido1_udbenl.jpg" },
   { category: "Furniture", title: "Wooden Chair", detail: "Handcrafted wooden chair", condition: "New", price: 45 },
-  { category: "Books", title: "Ruby Programming", detail: "Beginner's guide to Ruby", condition: "New", price: 20 },
-  { title: "Velo VTT", category: "Sport", detail: "#", condition: "Bon état", price: 35 },
-  { title: "Télé Samsung", category: "Electrique", detail: "#", condition: "Moyen", price: 50 },
+  { category: "Books", title: "Ruby Programming", detail: "Beginner's guide to Ruby", condition: "New", price: 20, image:"https://res.cloudinary.com/diffnfduk/image/upload/v1701685941/livre1_tum3nq.jpg" },
+  { title: "Velo VTT", category: "Sport", detail: "#", condition: "Bon état", price: 35, image:"https://res.cloudinary.com/diffnfduk/image/upload/v1701685941/velo1_mtrna3.jpg" },
+  { title: "Télé Samsung", category: "Electrique", detail: "#", condition: "Moyen", price: 50, iamge: "https://res.cloudinary.com/diffnfduk/image/upload/v1701684913/development/rkcxx94uy5zghiootzqrv5hxzagl.jpg" },
   { title: "Commode de lit", category: "Mobilier", detail: "#", condition: "Usagé", price: 5 },
   { title: "Tondeuse à gazon", category: "Jardinage", detail: "#", condition: "Bon état", price: 60 },
-  { title: "Collection de Spirou", category: "Divertissement", detail: "#", condition: "Usagé", price: 4 },
+  { title: "Collection de Spirou", category: "Divertissement", detail: "#", condition: "Usagé", price: 4, image:"https://res.cloudinary.com/diffnfduk/image/upload/v1701685941/livre3_w7busn.jpg"},
   { title: "Mixeur de cuisine", category: "Electrique", detail: "#", condition: "Moyen", price: 10 },
   { title: "Enceinte JBL", category: "Electrique", detail: "#", condition: "Très bonne état", price: 90 },
   { title: "Télé Sony", category: "Electrique", detail: "#", condition: "Bon état", price: 80 },
@@ -127,7 +128,8 @@ products_data.each do |product_data|
       establishment: Establishment.order("RANDOM()").first,
       ticket: Ticket.order("RANDOM()").first
     )
-  )
+    )
+# product.picture1 = File.open(Rails.root.join("db/pictures/garden1.jpg"))
+# product.save
 end
 puts "Seed data created successfully!"
- 
