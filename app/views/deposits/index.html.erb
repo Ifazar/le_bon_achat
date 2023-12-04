@@ -3,7 +3,7 @@
   <div class="resumdepo_deposits col-8 overflow-auto">
     <p>Votre dépôt comprend :</p>
     <% if @products.any? { |product| product.ticket_id == 1 } %>
-      <div class="index-container ">
+      <div class="index-container">
         <% @products.select {|product| product.ticket_id == 1}.each do |product| %>
           <div class="cards" >
             <%# <%= cl_image_tag product.picture1.key, class:" rounded-5", height: 150, width: 200, crop: :fill if product.picture1.attached? %>
@@ -18,7 +18,7 @@
               <%= button_to "Supprimer", deposit_path(product), method: :delete, data: { confirm: 'Are you sure?' },  class:"btn btn-outline-warning" %>
             </div>
           </div>
-       
+
         <% end %>
       </div>
 

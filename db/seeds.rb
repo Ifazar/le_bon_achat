@@ -106,19 +106,26 @@ end
 end
 # Creating Products
 products_data = [
-  { category: "Electronics", title: "Old Radio", detail: "Vintage radio from the 1950s", condition: "Used", price: 30 },
-  { category: "Furniture", title: "Wooden Chair", detail: "Handcrafted wooden chair", condition: "New", price: 45 },
-  { category: "Books", title: "Ruby Programming", detail: "Beginner's guide to Ruby", condition: "New", price: 20 },
+  { category: "Electronique", title: "Radio", detail: "Vintage radio from the 1950s", condition: "Usagé", price: 5 },
+  { category: "Etagère", title: "Etagère", detail: "#", condition: "Moyen", price: 15 },
+  { category: "Livre", title: "patient grand corps malade", detail: "grand corps malade", condition: "Moyen", price: 6 },
   { title: "Velo VTT", category: "Sport", detail: "#", condition: "Bon état", price: 35 },
   { title: "Télé Samsung", category: "Electrique", detail: "#", condition: "Moyen", price: 50 },
   { title: "Commode de lit", category: "Mobilier", detail: "#", condition: "Usagé", price: 5 },
   { title: "Tondeuse à gazon", category: "Jardinage", detail: "#", condition: "Bon état", price: 60 },
   { title: "Collection de Spirou", category: "Divertissement", detail: "#", condition: "Usagé", price: 4 },
   { title: "Mixeur de cuisine", category: "Electrique", detail: "#", condition: "Moyen", price: 10 },
-  { title: "Enceinte JBL", category: "Electrique", detail: "#", condition: "Très bonne état", price: 90 },
+  { title: "Enceinte JBL", category: "Electrique", detail: "#", condition: "Très bon état", price: 90 },
   { title: "Télé Sony", category: "Electrique", detail: "#", condition: "Bon état", price: 80 },
   { title: "Vélo de route", category: "SPort", detail: "#", condition: "Moyen", price: 20 },
-  { title: "Canapé", category: "Mobilier", detail: "#", condition: "Très bonne état", price: 60 }
+  { title: "Canapé", category: "Mobilier", detail: "#", condition: "Très bon état", price: 60 },
+  { title: "PS4", category: "Electrique", detail: "#", condition: "Moyen", price: 20 },
+  { title: "Fauteuil", category: "Mobilier", detail: "#", condition: "Bon état", price: 40 },
+  { title: "Téphone portable nokia 3310", category: "Electronics", detail: "#", condition: "Usagé", price: 5 },
+  { title: "Tronçoneuse", category: "Outils", detail: "#", condition: "Bon état", price: 30 },
+  { title: "Naruto", category: "Manga", detail: "#", condition: "Moyen", price: 4 },
+  { title: "One Piece", category: "Manga", detail: "#", condition: "Très bon état", price: 8 },
+  { title: "PC portable", category: "Electrique", detail: "#", condition: "Très bon état", price: 80 }
 ]
 products_data.each do |product_data|
   Product.create!(
@@ -130,4 +137,3 @@ products_data.each do |product_data|
   )
 end
 puts "Seed data created successfully!"
- 
