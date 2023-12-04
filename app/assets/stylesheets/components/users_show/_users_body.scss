@@ -1,0 +1,33 @@
+.users_body {
+  display: flex;
+  border: 1px solid;
+  margin-top: 32px;
+  height: auto;
+
+  justify-content: space-between;
+  padding: 24px;
+}
+
+.donnees {
+  padding: 40px;
+  margin-right: 50px;
+  height: max-content;
+  width: max-content;
+  border-radius: 8px;
+  border: 2px solid;
+  border-color: black;
+  box-shadow: 0 0 16px rgba(0, 0, 0, 0.6);
+  background-color: rgb(224, 222, 222);
+}
+
+h2 {
+  text-align: center;
+}
+
+.ps-4 {
+  border-right: 4px solid;
+  border-color: black;
+  padding-right: 20px;
+  width:50%;
+  
+}
