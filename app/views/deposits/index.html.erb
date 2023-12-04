@@ -18,49 +18,44 @@
               <%= button_to "Supprimer", deposit_path(product), method: :delete, data: { confirm: 'Are you sure?' },  class:"btn btn-outline-warning" %>
             </div>
           </div>
-       
         <% end %>
       </div>
-
-      <p>Le total de vos coupons:</p>
-      <p> - <%= @total_price %>€ </p>
-
     <% end %>
-
   </div>
+
   <div>
     <p>Le total de vos coupons:</p>
     <p> - <%= @total_price %>€ </p>
   </div>
 
-
-  <div class="reservation_deposits col-2">
-    <p>Date de dépôt :</p>
-    <p>Vour pouvez effectuer votre dépôt entre le <%= Time.now.strftime("%d/%m/%Y") %> et le <%= (Time.now + 15.days).strftime("%d/%m/%Y") %></p>
-    <% if @products.any? { |product| product.establishment_id == 1 } %>
-      <p>Dans l'un des établissement suivant :</p>
-      <p>Cliquez sur létablissement où vous désirez apporter votre dépot:</p>
-      <p>Vos adresses proches de chez vous:</p>
-    <% end %>
-    <div>
-
-      <% chosen_establishments = [] %>
-      <% @establishments.each do |establishment|%>
-        <% next if establishment.id == 1 %>
-        <% if @products.any? { |product| product.establishment_id == 1 } %>
-          <ul>
-            <%= button_to establishment.name, confirme_establishment_path(establishment), method: :patch, class: 'btn btn-success' %>
-            <%= establishment.address %>
-          </ul>
-          <% chosen_establishments << establishment %>
-        <% end %>
+  <div class="reservation_deposits col-2 overflow-auto">
+    <% if @products.any? { |product| product.ticket_id == 1 } %>
+      <p>Date de dépôt :</p>
+      <p>Vour pouvez effectuer votre dépôt entre le <%= Time.now.strftime("%d/%m/%Y") %> et le <%= (Time.now + 15.days).strftime("%d/%m/%Y") %></p>
+      <% if @products.any? { |product| product.establishment_id == 1 } %>
+        <p>Dans l'un des établissement suivant :</p>
+        <p>Cliquez sur létablissement où vous désirez apporter votre dépot:</p>
+        <p>Vos adresses proches de chez vous:</p>
       <% end %>
-        <% if chosen_establishments.empty? && @products.any? { |product| product.establishment_id != 1 } %>
-          <p>L'établissement que vous avez choisit :</p>
-          <%= @products.find { |product| product.establishment_id != 1 }.establishment.name %>
-          <%= @products.find { |product| product.establishment_id != 1 }.establishment.address %>
+    <% end %>
+      <div>
+        <% chosen_establishments = [] %>
+        <% @establishments.each do |establishment|%>
+          <% next if establishment.id == 1 %>
+          <% if @products.any? { |product| product.establishment_id == 1 } %>
+            <ul>
+              <%= button_to establishment.name, confirme_establishment_path(establishment), method: :patch, class: 'btn btn-success' %>
+              <%= establishment.address %>
+            </ul>
+            <% chosen_establishments << establishment %>
+          <% end %>
         <% end %>
-      </div>
+          <% if chosen_establishments.empty? && @products.any? { |product| product.establishment_id != 1 } %>
+            <p>L'établissement que vous avez choisit :</p>
+            <%= @products.find { |product| product.establishment_id != 1 }.establishment.name %>
+            <%= @products.find { |product| product.establishment_id != 1 }.establishment.address %>
+          <% end %>
+        </div>
   </div>
 
   <div class="map_container_deposits col-2">
@@ -71,12 +66,11 @@
     </div>
   </div>
 
-  <div class="btn_deposits" id="Valid">
-
-    <%= button_to "Valider",  increment_path, method: :post, class:"btn btn-outline-success" %>
-
-  </div>
-
+  <% if chosen_establishments.empty? && @products.any? { |product| product.establishment_id != 1 } && @products.any? { |product| product.ticket_id == 1 }%>
+    <div class="btn_deposits" id="Valid">
+      <%= button_to "Valider",  increment_path, method: :post, class:"btn btn-outline-success" %>
+    </div>
+  <% end %>
 
    <div id="mySidenav" class="sidenav">
     <%= link_to"📦 -  Dépôt", new_product_path, method: :get, class: "depot", id:"depot" %><br><br><br>
