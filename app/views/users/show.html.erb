@@ -1,27 +1,31 @@
 <div class="users_body">
 
   <div class="user_left">
-    <h2>Vos coupons:</h2>
-    <% @tickets.each do |ticket| %>
-    <div class="ticket">
-      <div class="content">
-      <span class="coupon">Votre coupon :</span>
-      <span class="price"> <%= ticket.price %> €</span>
+      <h2>Vos coupons:</h2>
+      <% @tickets.each do |ticket| %>
+      <div class="dep_cards">
+        <div class="ticket">
+          <div class="content">
+          <span class="coupon">Votre coupon :</span>
+          <span class="price"> <%= ticket.price %> €</span>
+          </div>
+        </div>
+        <p> </p>
+        <div class="index-container cards">
+          <h5> Vos objets déposés pour ce coupon: </h5>
+          <ul>
+            <% ticket.products.each do |product| %>
+              <li>
+              <h6> <%= product.title %>: "<%= product.category %>"</h6>
+              <p> <%= product.detail %>,
+              état: <%= product.condition %> </p>
+              </li>
+            <% end %>
+          </ul>
+        </div>
       </div>
-    </div>
-    <div class="index-container cards">
-      <h5> Vos objets déposés pour ce coupon: </h5>
-      <ul>
-        <% ticket.products.each do |product| %>
-          <li>
-          <h6> <%= product.title %>: "<%= product.category %>"</h6>
-          <p> <%= product.detail %>,
-          état: <%= product.condition %> </p>
-          </li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+      <% end %>
+
   </div>
 
   <div class="user_right">
