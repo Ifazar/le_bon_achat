@@ -1,0 +1,36 @@
+.products_body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Style pour le conteneur récapitulatif */
+.recap_body {
+  background-color: #d8dad3;
+  padding: -3px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 90%;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.recap_body p {
+  margin: 10px 0;
+}
+
+.recap_body p img {
+  max-width: 100%;
+  height: auto;
+  margin: 10px 0;
+}
+
+.btn_deposits {
+  margin-top: 20px;
+}
+
+.btn_deposits button {
+  margin: 0 10px;
+}
