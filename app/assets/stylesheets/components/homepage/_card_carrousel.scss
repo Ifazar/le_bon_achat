@@ -31,11 +31,15 @@ $z: 288px;
       line-height: $figure-height;
       color: #fff;
       font-size: 2rem;
+      justify-content: center;
+      
       @for $i from 0 through 8 {
         $hu: $i * 40;
         &:nth-of-type(#{$i + 1}) {
           transform: rotateY(#{$i * 40}deg) translateZ($z);
-          background-color: hsla($hu, 100%, 50%, 0.6);
+          // background-color: hsla($hu, 100%, 50%, 0.6);
+          background-size: contain;
+          background-repeat: no-repeat;
         }
       }
     }
@@ -59,9 +63,12 @@ button.btn-carousel {
   }
 }
 
-.carousel_container {
-  border: 1px solid;
-}
+// .carousel_container {
+//   // border: 1px solid;
+// }
+
+
+
 
 // :root {
 //   --width: 250px;
