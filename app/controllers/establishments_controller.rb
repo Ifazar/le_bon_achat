@@ -1,7 +1,7 @@
 class EstablishmentsController < ApplicationController
   def index
     @establishments = Establishment.all
-    @establishments.drop(name:"tampon")
+    @establishments.drop(1)
     @products = Product.all
 
     @marker = @establishments.geocoded.map do |establishment|
