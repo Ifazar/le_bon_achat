@@ -6,6 +6,9 @@
 
   justify-content: space-between;
   padding: 24px;
+    &h2 {
+      text-align: center;
+    }
 }
 
 .donnees {
@@ -20,14 +23,11 @@
   background-color: rgb(224, 222, 222);
 }
 
-h2 {
-  text-align: center;
-}
 
 .ps-4 {
   border-right: 4px solid;
   border-color: black;
   padding-right: 20px;
   width:50%;
-  
+
 }

@@ -14,7 +14,7 @@ Rails.application.routes.draw do
 
   resources :products, only: [:show, :new, :create]
   resources :deposits
-  
+
   post 'increment' => "users#increment"
 
   resources :establishments do
@@ -30,4 +30,6 @@ Rails.application.routes.draw do
       patch 'confirme'
     end
   end
+
+  get "achat", to: 'achats#achat'
 end

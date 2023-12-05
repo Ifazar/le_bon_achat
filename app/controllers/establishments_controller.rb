@@ -18,12 +18,10 @@ class EstablishmentsController < ApplicationController
     @products = @establishment.products
 
     @marker = @establishments.geocoded.map do |establishment|
-      if establishment == @establishment
         {
-          lat: establishment.latitude,
-          lng: establishment.longitude
+          lat: @establishment.latitude,
+          lng: @establishment.longitude
         }
-      end
     end
   end
 
