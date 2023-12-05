@@ -83,6 +83,7 @@ Establishment.destroy_all
 Ticket.destroy_all
 User.destroy_all
 
+
 # Creating Users
 5.times do |i|
   User.create!(

@@ -43,7 +43,7 @@
       <div>
         <% chosen_establishments = [] %>
         <% @establishments.each do |establishment|%>
-          <% next if establishment.id == 1 %>
+          <% next if establishment.name == "tampon" %>
           <% if @products.any? { |product| product.establishment_id == 1 } %>
             <ul>
               <%= button_to establishment.name, confirme_establishment_path(establishment), method: :patch, class: 'btn', id:"valid-btn" %>
