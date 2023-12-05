@@ -1,14 +1,14 @@
 import { Controller } from "@hotwired/stimulus";
 
 export default class extends Controller {
-  static targets = ["carousel", "container"];
+  static targets = ["carousel", "carous_container"];
 
   connect() {
     this.carouselTarget.style.transform = `rotateY(0deg)`;
     this.increment = 40;
     this.cur = 0;
 
-    const btns = this.containerTarget.querySelectorAll('.btn-carousel');
+    const btns = this.carous_containerTarget.querySelectorAll('.btn-carousel');
 
     btns.forEach((btn) => {
       btn.addEventListener('click', (event) => {

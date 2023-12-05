@@ -1,8 +1,10 @@
 <div class="homepage_body">
   <div class="info_container_left col-7">
     <div class="carousel_container" data-controller="carousel">
-      <div class='container' id="container" data-carousel-target="container">
-        <div class="carousel" id="carousel" data-carousel-target="carousel">
+
+      <div class='carous_container' id="container" data-carousel-target="carous_container">
+        <div class="carousel" id="carousel" data-carousel-target="carousel" >
+
           <!-- Your product rendering -->
           <% @products.limit(9).each do |product| %>
             <figure style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= product.image %>)">
@@ -71,7 +73,7 @@
 
   <div id="mySidenav" class="sidenav">
     <%= link_to"📦 -  Dépôt", new_product_path, method: :get, class: "depot", id:"depot" %><br><br><br>
-    <%= link_to "🛒 - Achat", "#", method: :get, class:"achat", id:"achat" %>
+    <%= link_to "🛒 - Achat", achat_path, method: :get, class:"achat", id:"achat" %>
     <%# <p id="achat"> 🛒 - Achat</p> %>
     <%# <p href="" id="depot"> 📦 - Dépôt</p> %>
   </div>

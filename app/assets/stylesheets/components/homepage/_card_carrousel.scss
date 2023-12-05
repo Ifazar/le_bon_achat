@@ -3,7 +3,7 @@ $carousel-height: 140px;
 $figure-width: 186px;
 $figure-height: 116px;
 $z: 288px;
-.container {
+.carous_container {
   width: $carousel-width;
   height: $carousel-height;
   position: relative;
@@ -38,7 +38,7 @@ $z: 288px;
         &:nth-of-type(#{$i + 1}) {
           transform: rotateY(#{$i * 40}deg) translateZ($z);
           // background-color: hsla($hu, 100%, 50%, 0.6);
-          background-size: contain;
+          background-size: cover;
           background-repeat: no-repeat;
         }
       }
