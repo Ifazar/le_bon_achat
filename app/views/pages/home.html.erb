@@ -28,7 +28,7 @@
       <div class="map-info">
         <p>Vos adresses proches de chez vous:</p>
         <% @establishments.each do |establishment|%>
-          <% next if establishment.id == 1 %>
+          <% next if establishment.name == "tampon" %>
           <ul>
             <li>
               <%= link_to establishment.name, establishment_path(establishment), class:"" %>
