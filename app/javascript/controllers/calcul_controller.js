@@ -41,30 +41,66 @@ export default class extends Controller {
       switch (condition) {
         case "Très Bon":
         switch (category) {
-          case "Divertissement": return "7";
-          case "Electrique":
-          case "Sport": return "30";
+          case "Electroménager": return "50";
+          case "Jeux & Jouet":
+          case "Décoration": return "15";
+          case "Vélo": return "40";
+          case "Ameublement":
+          case "Sport & Plein air":
+          case "Bricolage": return "20";
+          case "Loisirs créatifs":
+          case "Livres / Mangas & BD":
+          case "Jardin & Plantes": return "10";
+          case "Mode": return "25";
+          case "Electronique": return "60";
           default: return "20";
         }
         case "Bon":
         switch (category) {
-          case "Divertissement": return "4";
-          case "Electrique":
-          case "Sport": return "20";
+          case "Electroménager": return "30";
+          case "Jeux & Jouet":
+          case "Décoration": return "10";
+          case "Vélo": return "25";
+          case "Ameublement":
+          case "Sport & Plein air":
+          case "Bricolage": return "15";
+          case "Loisirs créatifs":
+          case "Livres / Mangas & BD":
+          case "Jardin & Plantes": return "8";
+          case "Mode": return "20";
+          case "Electronique": return "40";
           default: return "15";
         }
         case "Moyen":
         switch (category) {
-          case "Divertissement": return "2";
-          case "Electrique":
-          case "Sport": return "15";
+          case "Electroménager": return "20";
+          case "Décoration": return "8";
+          case "Vélo": return "20";
+          case "Ameublement":
+          case "Mode":
+          case "Sport & Plein air":
+          case "Bricolage": return "10";
+          case "Jeux & Jouet":
+          case "Loisirs créatifs":
+          case "Livres / Mangas & BD":
+          case "Jardin & Plantes": return "5";
+          case "Electronique": return "30";
           default: return "10";
         }
         default:
         switch (category) {
-          case "Divertissement": return "1";
-          case "Electrique":
-          case "Sport": return "10";
+          case "Electroménager": return "10";
+          case "Bricolage":
+          case "Ameublement":
+          case "Sport & Plein air":
+          case "Décoration": return "5";
+          case "Vélo": return "15";
+          case "Jeux & Jouet":
+          case "Jardin & Plantes": return "2";
+          case "Mode": return "7";
+          case "Electronique": return "20";
+          case "Livres / Mangas & BD":
+          case "Loisirs créatifs": return "3";
           default: return "5";
         }
       }
@@ -123,9 +159,9 @@ export default class extends Controller {
     const condition = this.element.querySelector("select[name='product[condition]']").value;
     const productDetails = this.element.querySelector("#product-details");
     productDetails.innerHTML = `
-      <p><strong>Nom de l'objet:</strong> ${productName}</p>
-      <p><strong>Catégorie:</strong> ${category}</p>
-      <p><strong>État:</strong> ${condition}</p>
+    <p><strong>Nom de l'objet:</strong> ${productName}</p>
+    <p><strong>Catégorie:</strong> ${category}</p>
+    <p><strong>État:</strong> ${condition}</p>
     `;
   }
 
@@ -168,4 +204,3 @@ export default class extends Controller {
     this.hidePopup();
   }
 }
-
