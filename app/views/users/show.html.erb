@@ -1,29 +1,34 @@
 <div class="users_body">
 
-  <div class="ps-4">
-    <h2>Vos coupons:</h2>
-    <% @tickets.each do |ticket| %>
-    <div class="ticket">
-      <div class="content">
-      <span class="coupon">Votre coupon :</span>
-      <span class="price"> <%= ticket.price %> €</span>
+  <div class="user_left">
+      <h2>Vos coupons:</h2>
+      <% @tickets.each do |ticket| %>
+      <div class="dep_cards">
+        <div class="ticket">
+          <div class="content">
+          <span class="coupon">Votre coupon :</span>
+          <span class="price"> <%= ticket.price %> €</span>
+          </div>
+        </div>
+        <p> </p>
+        <div class="index-container cards">
+          <h5> Vos objets déposés pour ce coupon: </h5>
+          <ul>
+            <% ticket.products.each do |product| %>
+              <li>
+              <h6> <%= product.title %>: "<%= product.category %>"</h6>
+              <p> <%= product.detail %>,
+              état: <%= product.condition %> </p>
+              </li>
+            <% end %>
+          </ul>
+        </div>
       </div>
-    </div>
-    <h5> Vos objets déposés pour ce coupon: </h5>
-    <ul>
-      <% ticket.products.each do |product| %>
-        <li>
-        <h6> <%= product.title %>: </h6>
-        <p> <%= product.detail %>,
-        état: <%= product.condition %>,
-        "<%= product.category %>" </p>
-        </li>
       <% end %>
-    </ul>
-  <% end %>
+
   </div>
 
-  <div>
+  <div class="user_right">
     <div class="donnees">
       <h2>Vos données personnelles:</h2>
       <h4> Votre email:</h4>
@@ -32,7 +37,7 @@
 
     <div class="p-4">
     <h2>Vos achats:</h2>
-    <p> Vous n'avez aucun achat dans votre panier.</p>
+    <p> Vous n'avez aucun achat dans votre panier pour le moment. </p>
     </div>
   </div>
 

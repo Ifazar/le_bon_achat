@@ -21,13 +21,33 @@
   border-color: black;
   box-shadow: 0 0 16px rgba(0, 0, 0, 0.6);
   background-color: rgb(224, 222, 222);
+  margin: auto;
+}
+
+.p-4 {
+  margin: auto;
+  text-align: center;
 }
 
 
-.ps-4 {
-  border-right: 4px solid;
+.user_left {
+  border-right: 2px solid;
   border-color: black;
-  padding-right: 20px;
+  padding: 20px;
   width:50%;
+}
 
+.user_right {
+  border-left: 2px solid;
+  border-color: black;
+  padding: 20px;
+  width:50%;
+}
+
+.dep_cards {
+  padding: 10px;
+  margin: 10px;
+  border-bottom: 2px solid;
+  border-color: black;
+  text-align: center;
 }

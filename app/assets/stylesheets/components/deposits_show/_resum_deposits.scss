@@ -12,12 +12,13 @@
   margin-top: 10px;
 }
 
-.resumdepo_deposits{
+.resumdepo_deposits {
   border: 1px solid;
   border-radius: 6px;
   width: 500px;
-  height: 400px;
+  height: auto;
   margin-left: 20px;
+  margin-right: 4px;
   margin-top: 10px;
   background-color: #d8dad3;
 }
@@ -36,13 +37,15 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  text-align: center;
+  gap: 4px;
 }
 
 .cards {
   background-color: #fff;
   border: 1px solid #ccc;
   border-radius: 8px;
-  margin: 10px;
+  margin: auto;
   padding: 15px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   width: 400px;
