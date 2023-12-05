@@ -1,5 +1,60 @@
 <div class="homepage_body">
-  <div class="info_container_left col-7">
+  <div class="info_container_left d-flex flex-column gap-20px ">
+
+
+
+   <div class="d-flex">
+
+    <div>
+      <div class="ag-format-container">
+        <div class="ag-courses_box">
+          <div class="ag-courses_item">
+          <a href="#" class="ag-courses-item_link">
+            <div class="ag-courses-item_bg_left"></div>
+            <div class="ag-courses-item_title">
+              <h2>Notre Concept</h2>
+              <div class="text" style="font-size: smaller;">
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatem ea neque itaque sint a. Quasi a dignissimos, dolore provident tenetur illum autem deserunt harum vitae in explicabo minima distinctio rerum!</p>
+              </div>
+            </div>
+          </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <%= image_tag("https://res.cloudinary.com/diffnfduk/image/upload/v1701792675/ressourcerie_kfeftk.jpg", :type => "fetch") %>
+    </div>
+
+    </div>
+   <div class="d-flex">
+
+    <div>
+      <p>image</p>
+    </div>
+    <div>
+      <div class="ag-format-container">
+        <div class="ag-courses_box">
+          <div class="ag-courses_item">
+          <a href="#" class="ag-courses-item_link">
+            <div class="ag-courses-item_bg_right"></div>
+            <div class="ag-courses-item_title">
+              <h2>Les coupons</h2>
+              <div class="text" style="font-size: smaller;">
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatem ea neque itaque sint a. Quasi a dignissimos, dolore provident tenetur illum autem deserunt harum vitae in explicabo minima distinctio rerum!</p>
+              </div>
+            </div>
+          </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+
+    <div class="mt-6">
+      <h2>Nos Articles disponible</h2>
+    </div>
+
     <div class="carousel_container" data-controller="carousel">
 
       <div class='carous_container' id="container" data-carousel-target="carous_container">
@@ -7,9 +62,9 @@
 
           <!-- Your product rendering -->
           <% @products.limit(9).each do |product| %>
-            <figure style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= product.image %>)">
-              <h5><%= link_to product.title, establishment_path(product.establishment), class:"text-decoration-none" %></h5>
-              <p><%= product.price %>€</p>
+            <figure style="display: flex; background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.2)), url(<%= product.image %>)">
+              <h5><%= link_to product.title, establishment_path(product.establishment), class:"carous-deco" %></h5>
+              <p class="test"><%= product.price %>€</p>
             </figure>
           <% end %>
         </div>
@@ -17,9 +72,12 @@
         <button class="btn-carousel" id="btn-carous-right" data-action="click->carousel#rotate">next</button>
       </div>
     </div>
+  </div>
 
-    <div class="map_container_home">
-      <div style="width: 100%; height: 300px;"
+
+
+  <div class="map_container_home">
+      <div id="map" style="width: 100%; height: 300px;"
         data-controller="map"
         data-map-markers-value="<%= @markers.to_json %>"
         data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
@@ -37,10 +95,22 @@
           </ul>
         <% end %>
       </div>
-    </div>
   </div>
 
-  <div class="info_container_right col-5">
+  <div id="mySidenav" class="sidenav">
+    <%= link_to"📦 -  Dépôt", new_product_path, method: :get, class: "depot", id:"depot" %><br><br><br>
+    <%= link_to "🛒 - Achat", achat_path, method: :get, class:"achat", id:"achat" %>
+    <%# <p id="achat"> 🛒 - Achat</p> %>
+    <%# <p href="" id="depot"> 📦 - Dépôt</p> %>
+  </div>
+
+</div>
+
+
+
+
+
+  <%# <div class="info_container_right col-5">
     <div class="ag-format-container">
       <div class="ag-courses_box">
         <div class="ag-courses_item">
@@ -71,14 +141,4 @@
         <!-- Ajoutez d'autres éléments .ag-courses_item au besoin -->
       </div>
     </div>
-  </div>
-
-  <div id="mySidenav" class="sidenav">
-    <%= link_to"📦 -  Dépôt", new_product_path, method: :get, class: "depot", id:"depot" %><br><br><br>
-    <%= link_to "🛒 - Achat", achat_path, method: :get, class:"achat", id:"achat" %>
-    <%# <p id="achat"> 🛒 - Achat</p> %>
-    <%# <p href="" id="depot"> 📦 - Dépôt</p> %>
-  </div>
-
-
-</div>
+  </div> %>
