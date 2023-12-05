@@ -65,10 +65,14 @@
         <!-- Ajoutez d'autres éléments .ag-courses_item au besoin -->
       </div>
     </div>
-
-    <div id="mySidenav" class="sidenav">
-      <%= link_to"📦 -  Dépôt", new_product_path, method: :get, class: "depot", id:"depot" %><br><br><br>
-      <%= link_to "🛒 - Achat", "#", method: :get, class:"achat", id:"achat" %>
-    </div>
   </div>
+
+  <div id="mySidenav" class="sidenav">
+    <%= link_to"📦 -  Dépôt", new_product_path, method: :get, class: "depot", id:"depot" %><br><br><br>
+    <%= link_to "🛒 - Achat", "#", method: :get, class:"achat", id:"achat" %>
+    <%# <p id="achat"> 🛒 - Achat</p> %>
+    <%# <p href="" id="depot"> 📦 - Dépôt</p> %>
+  </div>
+
+
 </div>
