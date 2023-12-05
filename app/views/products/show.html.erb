@@ -1,43 +1,41 @@
 <div class="products_body">
 
   <div class="recap_body col-8">
-  <p>Votre Produit :</p>
-  <p> - <%= @product.title %> </p>
-  <p> - <%= @product.category %> </p>
-  <p> - <%= @product.condition %> </p>
+    <h4>Votre Produit :</h4>
+    <h5> <%= @product.title %>: </h5>
+    <p> Categorie: <%= @product.category %>, état: <%= @product.condition %> </p>
 
-  <% if @product.picture1.present? || @product.picture2.present? || @product.picture3.present? %>
-    <p>Photos :</p>
-    <% if @product.picture1.present? %>
-      <p> - <%= cl_image_tag @product.picture1.key, class:" rounded-5", height: 150, width: 200 %> </p>
+    <% if @product.picture1.present? || @product.picture2.present? || @product.picture3.present? %>
+      <h5>Photos :</h5>
+      <% if @product.picture1.present? %>
+        <p> <%= cl_image_tag @product.picture1.key, class:" rounded-5", height: 150, width: 200 %>
+      <% end %>
+      <% if @product.picture2.present? %>
+         <%= cl_image_tag @product.picture2.key, class:" rounded-5", height: 150, width: 200 %>
+      <% end %>
+      <% if @product.picture3.present? %>
+         <%= cl_image_tag @product.picture3.key, class:" rounded-5", height: 150, width: 200 %> </p>
+      <% end %>
     <% end %>
-    <% if @product.picture2.present? %>
-      <p> - <%= cl_image_tag @product.picture2.key, class:" rounded-5", height: 150, width: 200 %> </p>
-    <% end %>
-    <% if @product.picture3.present? %>
-      <p> - <%= cl_image_tag @product.picture3.key, class:" rounded-5", height: 150, width: 200 %> </p>
-    <% end %>
-  <% end %>
 
-  <p>Votre coupon:</p>
+    <p>Votre coupon:</p>
 
-  <div class="ticket">
-    <div class="content">
-    <span class="coupon">Votre coupon :</span>
-    <span> <%= @product.title %> </span>
-    <span class="price"> <%= @product.price %> €</span>
+    <div class="ticket">
+      <div class="content">
+      <span class="coupon">Votre coupon :</span>
+      <span> <%= @product.title %> </span>
+      <span class="price"> <%= @product.price %> €</span>
+      </div>
     </div>
+
+    <div class="btn_deposits" id="Valid">
+      <%= button_to "Voir les Objets de votre dépot", deposits_path, method: :get, class:"btn btn-outline-success" %>
+    </div>
+
+    <div class="btn_deposits" id="Retour">
+      <%= button_to "Déposer un autre Objet",  new_product_path, method: :get, class:"btn btn-outline-success" %>
+    </div>
+
   </div>
-
-  <div class="btn_deposits" id="Valid">
-    <%= button_to "Voir les Objets de votre dépot", deposits_path, method: :get, class:"btn btn-outline-success" %>
-  </div>
-  <div class="btn_deposits" id="Retour">
-    <%= button_to "Déposer un autre Objet",  new_product_path, method: :get, class:"btn btn-outline-success" %>
-  </div>
-
-</div>
-
-
 
 </div>
