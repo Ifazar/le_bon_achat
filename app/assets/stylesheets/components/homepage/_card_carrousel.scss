@@ -24,11 +24,13 @@ $z: 288px;
       position: absolute;
       width: $figure-width;
       height: $figure-height;
+      align-items: center;
+      backdrop-filter: blur(10px);
       left: 10px;
       top: 10px;
       border-radius: 20px;
       text-align: center;
-      line-height: $figure-height;
+      /* line-height: $figure-height; */
       color: #fff;
       font-size: 2rem;
       justify-content: center;
@@ -86,6 +88,16 @@ button.btn-carousel {
     }
 }
 
+.test{
+
+  position: absolute;
+  right: 11px;
+  top: 7px;
+  font-size: 13px;
+  background-color: #f9b234;
+  border-radius: 16px;
+  padding: 1px 4px;
+}
 
 .carousel_container {
   height: 400px;
@@ -93,6 +105,13 @@ button.btn-carousel {
 
 }
 
+.carous-deco {
+  text-decoration: none;
+  color: white;
+  padding-top: 10px;
+  text-shadow: 1px 1px #00000085;
+
+}
 
 
 
