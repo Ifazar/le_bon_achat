@@ -1,6 +1,7 @@
 .concept_coupon_info {
   border: 1px solid;
   border-radius: 16px;
+  color: black;
 }
 
 #concept {
@@ -9,6 +10,7 @@
   height:300px;
   text-align: center;
   padding: 40px;
+  color: black;
 }
 
 #coupon {
@@ -46,6 +48,7 @@
   text-decoration: none;
   text-align: center;
   cursor: auto;
+  color: black;
 }
 
 /* Supprime les styles de survol pour .ag-courses-item_link */
@@ -74,7 +77,7 @@
 
 .ag-courses-item_date-box {
   font-size: 18px;
-  color: #FFF;
+  color: black;
   z-index: 2;
   position: relative;
 }

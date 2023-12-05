@@ -1,52 +1,54 @@
 <div class="new_product" data-controller="calcul">
-    <h1>Ajoutez votre Objet:</h1>
+  <h1>Ajoutez votre Objet:</h1>
 
-    <%= simple_form_for [@product] do |t| %>
-      <%= t.input :title, label: "Nom de votre objet" %>
+  <%= simple_form_for [@product] do |t| %>
+    <%= t.input :title, label: "Nom de votre objet" %>
 
-      <div data-action="click->calcul#updatePrice" id="category">
-        <%= t.select :category,
-          {
-            "Divertissement" => [["Jeux/Jouet/Jeux de société"], ["Livre/BD/Manga"]],
-            "Electrique" => [["Electroménager"], ["Télévision/Ecran/Enceinte"]],
-            "Mobilier" => [["Canapé/Fauteuil"], ["Commode/Etagére"], ["Chaise"], ["Exterieur"]],
-            "Jardinage" => [["Pot/Mobilier"], ["Outils"]],
-            "Sport" => [["Vélo"], ["Matériel en tout genre"]],
-          },
-          selected: "Divertissement", class: "buttoneffect" %>
+    <div data-action="click->calcul#updatePrice" id="category">
+    <%= t.label :category, "Catégorie de l'objet..*" %>
+      <div  class="buttoneffect">
+      <%= t.select :category,
+        {
+          "Divertissement" => [["Jeux/Jouet/Jeux de société"], ["Livre/BD/Manga"]],
+          "Electrique" => [["Electroménager"], ["Télévision/Ecran/Enceinte"]],
+          "Mobilier" => [["Canapé/Fauteuil"], ["Commode/Etagére"], ["Chaise"], ["Exterieur"]],
+          "Jardinage" => [["Pot/Mobilier"], ["Outils"]],
+          "Sport" => [["Vélo"], ["Matériel en tout genre"]],
+        },
+        selected: "Divertissement", label: "Condition de l'objet" %>
       </div>
+    </div>
 
-      <%= t.input :detail, label: "Détails descriptifs" %>
+    <%= t.input :detail, label: "Détails descriptifs" %>
 
-      <div data-action="click->calcul#updatePrice" id="condition">
-        <%= t.select :condition, ["Très Bon", "Bon", "Moyen", "Usagé"] %>
-      </div>
+    <div data-action="click->calcul#updatePrice" id="condition">
+    <label for="product_condition">Condition de l'objet..*</label>
+      <%= t.select :condition, ["Très Bon", "Bon", "Moyen", "Usagé"], {}, id: "condition" %>
+    </div>
 
-      <div data-action="change->calcul#addPicture1" id="picture1">
+    <div data-action="change->calcul#addPicture1" id="picture1">
       <%= t.input :picture1, as: :file, label: "Photo de votre objet" %>
-      </div>
-      <div data-action="change->calcul#addPicture2" id="picture2">
+    </div>
+
+    <div data-action="change->calcul#addPicture2" id="picture2">
       <%= t.input :picture2, as: :file, label: "Photo de votre objet" %>
-      </div>
-      <div id="picture3">
+    </div>
+
+    <div id="picture3">
       <%= t.input :picture3, as: :file, label: "Photo de votre objet" %>
-      </div>
+    </div>
 
+    <%= t.hidden_field :price, id: "calculatedPriceInput" %>
+    <span id="priceDisplay" data-calcul-target="results"></span>
 
-      <%= t.hidden_field :price, id: "calculatedPriceInput" %>
-       <span id="priceDisplay" data-calcul-target="results">
-      </span>
-
-
-  <button type="button" id="show-popup-button" data-action="click->calcul#showPopup">Afficher le récapitulatif</button>
-    <% end %>
+    <button type="button" id="show-popup-button" data-action="click->calcul#showPopup">Afficher le récapitulatif</button>
+  <% end %>
 
   <div class="refuse-button" id="refuse-button">
     <%= link_to "Annuler", root_path %>
   </div>
 
   <div id="overlay"></div>
-
 
   <div id="summary-popup" style="display: none;">
     <h2>Récapitulatif du dépôt</h2>
@@ -55,93 +57,338 @@
     </div>
     <div class="button-container">
       <button class="refuse-button" id="refuse-button" data-action="click->calcul#onCancel">Refuser</button>
-      <button class="validate-button" id="validate-button"data-action="click->calcul#onValidate">Accepter</button>
+      <button class="validate-button" id="validate-button" data-action="click->calcul#onValidate">Accepter</button>
     </div>
-
   </div>
-
 </div>
+
 
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
 
 <style>
-  /* Style pour les ajout d'immages supplémentaires */
-  #picture2 {
-            display: none;
-  }
-  #picture3 {
-            display: none;
+
+#picture2 {
+  display: none;
+}
+
+#picture3 {
+  display: none;
+}
+
+.new_product {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Styles pour déplacer les catégories déroulantes à droite */
+#category {
+  margin: auto;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+#category select {
+  width: 80%; /* Utilisez simplement une largeur de 80% sans calculs complexes */
+  padding: 10px 15px; /* Ajustez le padding pour un aspect plus équilibré */
+  font-size: 16px;
+  border: 2px solid #3498db;
+  border-radius: 5px;
+  background-color: #fff;
+  color: #333;
+  outline: none;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+#category select:hover,
+#category select:focus {
+  border-color: #2980b9;
+  background-color: #ecf0f1;
+}
+
+  .buttoneffect{
+        text-align : center;
+        width: 360px;
   }
 
-  #summary-popup {
-    display: none;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    padding: 20px;
-    background: linear-gradient(45deg, #b30000, #e68a00);
-    z-index: 1000;
-    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
-    border-radius: 8px;
-    text-align: center;
-  }
+#condition {
+  margin: 0 auto;
+  text-align: center;
+  margin-bottom: 30px;
+}
 
-  /* Style pour l'arrière-plan obscurci */
-  #overlay {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 999;
-  }
 
-  /* Style pour centrer le contenu du pop-up */
-  #product-details {
-    text-align: center;
-  }
+#condition select {
+  width: 100%; /* Ajuste la largeur totale pour inclure le padding sur les côtés */
+  padding: 10px 40px; /* Ajoute du padding uniquement sur les côtés horizontaux */
+  font-size: 16px;
+  border: 2px solid #3498db;
+  border-radius: 5px;
+  background-color: #fff;
+  color: #333;
+  outline: none;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+}
 
-  /* Style pour les boutons */
-  .button-container {
-    text-align: center;
-    margin-top: 15px;
-  }
+#condition select:hover,
+#condition select:focus {
+  border-color: #2980b9;
+  background-color: #ecf0f1;
+}
 
-  .refuse-button {
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    width: max-content;
-    margin: auto;
-    background-color: #f44336;
-    color: white;
-    border: 2px solid white;
-  }
 
-  .validate-button {
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    width: max-content;
-    margin: auto;
-    background-color: #555555;
-    color: white;
-    border: 2px solid white;
-  }
 
+
+
+
+
+
+
+/* popup */
+
+#summary-popup {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  background: #f2f2f2;
+  background-size: cover;
+  z-index: 1000;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+  text-align: center;
+}
+
+/* Style pour l'arrière-plan obscurci */
+#overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+
+/* Style pour centrer le contenu du pop-up */
+#product-details {
+  text-align: center;
+}
+
+/* Style pour les boutons */
+.button-container {
+  text-align: center;
+  margin-top: 15px;
+}
+
+.refuse-button {
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  width: max-content;
+  margin: auto;
+  background-color: #f44336;
+  color: white;
+  border: 2px solid white;
+}
   #refuse-button:hover {
     background:#f44336;
-    transition:  0.9s ease;
+    transition: 0.9s ease;
     box-shadow:0 200px 100px -100px rgb(252, 2, 2) inset, 0 0 5px black;
   }
 
-  #validate-button:hover {
-    background:#555;
-    transition:  0.9s ease;
-    box-shadow:0 200px 100px -100px #887979 inset, 0 0 5px black;
-  }
+.validate-button {
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  width: max-content;
+  margin: auto;
+  background-color: #555555;
+  color: white;
+  border: 2px solid white;
+}
+
+
+#validate-button:hover {
+  background:#555;
+  transition: 0.9s ease;
+  box-shadow:0 200px 100px -100px #887979 inset, 0 0 5px black;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* Styles pour le formulaire */
+body {
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  font-family: arial, sans-serif;
+}
+
+.container {
+  position: relative
+}
+
+form {
+  background: rgba(255, 255, 255, .3);
+  padding: 3rem;
+  height: auto;
+  border-radius: 20px;
+  border-left: 1px solid rgba(255, 255, 255, .3);
+  border-top: 1px solid rgba(255, 255, 255, .3);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  -moz-backdrop-filter: blur(10px);
+  box-shadow: 20px 20px 40px -6px rgba(0, 0, 0, .2);
+  text-align: center;
+  justify-content: center;
+  margin-right: 300px; /* Ajustez la marge pour éviter le chevauchement avec la barre de navigation */
+  margin-left: 300px;
+  margin: 100px;
+}
+
+h2 {
+  margin-bottom: 20px;
+}
+
+.form-inputs {
+  margin-bottom: 20px;
+}
+
+.password-hint {
+  margin-top: -10px;
+  margin-bottom: 20px;
+}
+
+p {
+  color: black;
+  font-weight: 500;
+  opacity: .7;
+  font-size: 1.4rem;
+  margin-bottom: 60px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, .2);
+}
+
+a {
+  text-decoration: none;
+  color: black;
+  font-size: 12px;
+}
+
+a:hover {
+  text-shadow: 2px 2px 6px #00000040;
+}
+
+a:active {
+  text-shadow: none;
+}
+
+input {
+  background: transparent;
+  border: none;
+  border-left: 1px solid rgba(255, 255, 255, .8);
+  border-top: 1px solid rgba(2255, 255, 255, .8);
+  padding: 1rem;
+  width: 200px;
+  border-radius: 50px;
+  backdrop-filter: blur(5px);
+  box-shadow: 4px 4px 60px rgba(0, 0, 0, .2);
+  font-weight: 500;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, .2);
+  transition: all .3s;
+  margin-bottom: 2em;
+}
+
+input:hover,
+input[type="email"]:focus,
+input[type="password"]:focus{
+  background: rgba(255,255,255,0.1);
+  box-shadow: 4px 4px 60px 8px rgba(0,0,0,0.2);
+}
+
+input[type="button"] {
+  margin-top: 10px;
+  width: 150px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+::placeholder {
+  color: #fff;
+}
+
+.toggle {
+  position: absolute;
+  transform: scale(0);
+}
+
+.toggle + label {
+  position: relative;
+  display: inline-block;
+  padding-left: 40px;
+}
+
+.toggle + label::before {
+  content: '';
+  display: block;
+  position: absolute;
+  cursor: pointer;
+  width: 36px;
+  height: 20px;
+  top: 0;
+  left: 0;
+  background-color: #EAEAEA;
+  border-radius: 50rem;
+}
+
+.toggle:checked + label::before {
+  background-color: #1EDD88;
+}
+
+.toggle + label::after {
+  content: '';
+  display: block;
+  position: absolute;
+  cursor: pointer;
+  width: 16px;
+  height: 16px;
+  top: 2px;
+  left: 2px;
+  background-color: white;
+  border-radius: 50%;
+  transition: left 0.2s ease;
+}
+
+.toggle:checked + label::after {
+  left: 18px;
+}
+
+#show-popup-button {
+     background-color: #4CAF50;
+     color: white;
+     padding: 15px 20px;
+     font-size: 16px;
+     border: none;
+     border-radius: 8px;
+     cursor: pointer;
+     transition: background-color 0.3s ease;
+ }
+
+ #show-popup-button:hover {
+     background-color: #45a049;
+ }
+
 </style>
