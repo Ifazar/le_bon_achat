@@ -4,13 +4,6 @@
       <h2>Vos coupons:</h2>
       <% @tickets.each do |ticket| %>
       <div class="dep_cards">
-        <div class="ticket">
-          <div class="content">
-          <span class="coupon">Votre coupon :</span>
-          <span class="price"> <%= ticket.price %> €</span>
-          </div>
-        </div>
-        <p> </p>
         <div class="index-container cards">
           <h5> Vos objets déposés pour ce coupon: </h5>
           <ul>
@@ -23,6 +16,12 @@
               </li>
             <% end %>
           </ul>
+        <div class="ticket">
+          <div class="content">
+          <span class="coupon">Votre coupon :</span>
+          <span class="price"> <%= ticket.price %> €</span>
+          </div>
+        </div>
         </div>
       </div>
       <% end %>
