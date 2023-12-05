@@ -13,8 +13,8 @@
             </figure>
           <% end %>
         </div>
-        <button class="btn-carousel" data-action="click->carousel#rotate">prev</button>
-        <button class="btn-carousel" data-action="click->carousel#rotate">next</button>
+        <button class="btn-carousel" id="btn-carous-left"data-action="click->carousel#rotate">prev</button>
+        <button class="btn-carousel" id="btn-carous-right" data-action="click->carousel#rotate">next</button>
       </div>
     </div>
 
@@ -25,13 +25,15 @@
         data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
       </div>
 
-      <div>
+      <div class="map-info">
         <p>Vos adresses proches de chez vous:</p>
         <% @establishments.each do |establishment|%>
           <% next if establishment.id == 1 %>
           <ul>
-            <%= link_to establishment.name, establishment_path(establishment), class:"" %>
-            <%= establishment.address %>
+            <li>
+              <%= link_to establishment.name, establishment_path(establishment), class:"" %>
+              <%= establishment.address %>
+            </li>
           </ul>
         <% end %>
       </div>

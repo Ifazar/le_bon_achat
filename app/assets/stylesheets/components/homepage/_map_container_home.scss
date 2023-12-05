@@ -2,6 +2,13 @@
 
   width: auto;
   height: auto;
-  border: 1px solid;
-  
+
+  background-color: white;
+  border-radius: 16px;
+  border-right: 0.5px solid;
+  border-bottom: 0.5px solid;
+}
+
+.map-info {
+  padding: 8px;
 }

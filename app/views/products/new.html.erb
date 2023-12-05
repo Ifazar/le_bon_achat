@@ -41,7 +41,7 @@
   <button type="button" id="show-popup-button" data-action="click->calcul#showPopup">Afficher le récapitulatif</button>
     <% end %>
 
-  <div class="refuse-button">
+  <div class="refuse-button" id="refuse-button">
     <%= link_to "Annuler", root_path %>
   </div>
 
@@ -54,8 +54,8 @@
       <!-- Les détails du produit seront affichés ici -->
     </div>
     <div class="button-container">
-      <button class="refuse-button" data-action="click->calcul#onCancel">Refuser</button>
-      <button class="validate-button"data-action="click->calcul#onValidate">Accepter</button>
+      <button class="refuse-button" id="refuse-button" data-action="click->calcul#onCancel">Refuser</button>
+      <button class="validate-button" id="validate-button"data-action="click->calcul#onValidate">Accepter</button>
     </div>
 
   </div>
@@ -112,32 +112,36 @@
   }
 
   .refuse-button {
-    background-color: #ff5858;
-    color: #fff;
     padding: 10px 20px;
-    border: none;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s;
     width: max-content;
-     margin: auto;
+    margin: auto;
+    background-color: #f44336;
+    color: white;
+    border: 2px solid white;
   }
 
   .validate-button {
-    background-color: #4caf50;
-    color: #fff;
     padding: 10px 20px;
-    border: none;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    width: max-content;
+    margin: auto;
+    background-color: #555555;
+    color: white;
+    border: 2px solid white;
   }
 
   #refuse-button:hover {
-    background-color: #e04343;
+    background:#f44336;
+    transition:  0.9s ease;
+    box-shadow:0 200px 100px -100px rgb(252, 2, 2) inset, 0 0 5px black;
   }
 
   #validate-button:hover {
-    background-color: #45a049;
+    background:#555;
+    transition:  0.9s ease;
+    box-shadow:0 200px 100px -100px #887979 inset, 0 0 5px black;
   }
 </style>
