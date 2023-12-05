@@ -121,21 +121,11 @@ export default class extends Controller {
     let keyClicked = (selectedOption.value)
     const category = getKeyByValue(hashTest, keyClicked);
     const condition = this.element.querySelector("select[name='product[condition]']").value;
-    const picture1 = this.element.querySelector("input[name='product[picture1]']").value;
-    const picture2 = this.element.querySelector("input[name='product[picture2]']").value;
-    const picture3 = this.element.querySelector("input[name='product[picture3]']").value;
-
-    let picturesSummary = '';
-    if (picture1 || picture2 || picture3) {
-      picturesSummary = `<p><strong>Photos:</strong> ${picture1} ${picture2} ${picture3}</p>`;
-    }
-
     const productDetails = this.element.querySelector("#product-details");
     productDetails.innerHTML = `
       <p><strong>Nom de l'objet:</strong> ${productName}</p>
       <p><strong>Catégorie:</strong> ${category}</p>
       <p><strong>État:</strong> ${condition}</p>
-      ${picturesSummary}
     `;
   }
 

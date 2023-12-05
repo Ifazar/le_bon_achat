@@ -45,12 +45,17 @@
   position: relative;
   text-decoration: none;
   text-align: center;
+  cursor: auto;
 }
 
+/* Supprime les styles de survol pour .ag-courses-item_link */
 .ag-courses-item_link:hover,
-.ag-courses-item_link:hover .ag-courses-item_date {
+.ag-courses-item_link:hover .ag-courses-item_date,
+.ag-courses-item_link:focus,
+.ag-courses-item_link:focus .ag-courses-item_date {
   text-decoration: none;
-  color: #FFF;
+  color: inherit;
+  /* Utilise la couleur du texte héritée */
 }
 
 .ag-courses-item_link:hover .ag-courses-item_bg {
