@@ -78,6 +78,10 @@
 # puts "Finished product!"
 require "open-uri"
 
+Product.destroy_all
+Establishment.destroy_all
+Ticket.destroy_all
+User.destroy_all
 
 # Creating Users
 5.times do |i|
