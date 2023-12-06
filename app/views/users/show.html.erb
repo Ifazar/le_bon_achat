@@ -1,7 +1,12 @@
 <div class="users_body">
 
-  <div class="user_left">
+    <div class="donnees">
+      <h2>Bonjour <%= current_user.email %></h2>
+    </div>
+
       <h2>Vos coupons:</h2>
+      <div class="user_container">
+
       <% @tickets.each do |ticket| %>
       <div class="dep_cards">
         <div class="index-container cards">
@@ -25,20 +30,12 @@
         </div>
       </div>
       <% end %>
+      </div>
 
-  </div>
-
-  <div class="user_right">
-    <div class="donnees">
-      <h2>Vos données personnelles:</h2>
-      <h4> Votre email:</h4>
-      <p> <%= current_user.email %> </p>
-    </div>
 
     <div class="p-4">
     <h2>Vos achats:</h2>
     <p> Vous n'avez aucun achat dans votre panier pour le moment. </p>
     </div>
-  </div>
 
 </div>

@@ -3,10 +3,8 @@
   display: flex;
   flex-wrap: wrap;
   padding: 32px;
-  // position: relative;
   overflow-x: hidden;
   overflow-y: hidden;
-  background: linear-gradient(45deg, #87CEEB, #ffffff);
   height: auto;
   justify-content: center;
 }
@@ -14,7 +12,6 @@
 .app_container {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
   justify-content: space-between;
 }
 
