@@ -23,25 +23,7 @@
           },
           selected: "Divertissement", class: "buttoneffect" %>
       </div>
-
-
-  <%= simple_form_for [@product] do |t| %>
-    <%= t.input :title, label: "Nom de votre objet" %>
-
-    <div data-action="click->calcul#updatePrice" id="category">
-    <%= t.label :category, "Catégorie de l'objet..*" %>
-      <div  class="buttoneffect">
-      <%= t.select :category,
-        {
-          "Divertissement" => [["Jeux/Jouet/Jeux de société"], ["Livre/BD/Manga"]],
-          "Electrique" => [["Electroménager"], ["Télévision/Ecran/Enceinte"]],
-          "Mobilier" => [["Canapé/Fauteuil"], ["Commode/Etagére"], ["Chaise"], ["Exterieur"]],
-          "Jardinage" => [["Pot/Mobilier"], ["Outils"]],
-          "Sport" => [["Vélo"], ["Matériel en tout genre"]],
-        },
-        selected: "Divertissement", label: "Condition de l'objet" %>
-      </div>
-    </div>
+   
 
     <%= t.input :detail, label: "Détails descriptifs" %>
 
