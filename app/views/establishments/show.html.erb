@@ -1,6 +1,6 @@
 
-
-<div class="d-flex">
+<div class="esta-body">
+  <div class="d-flex">
   <div class="container">
     <h3>Nos produits disponibles</h3>
     <div class="product_container">
@@ -9,7 +9,7 @@
           <% @products.each do |product| %>
 
             <div class="card-product" >
-              <%= image_tag product.image if product.image %>
+              <span class="img-product"><%= image_tag product.image if product.image %></span>
 
               <div class="card-product-infos">
                 <h2><%= product.title %></h2>
@@ -21,24 +21,18 @@
         <% else %>
           <p>No products available</p>
         <% end %>
-
     </div>
-
   </div>
 
-
-
-
-
-    <div class="container">
-      <p><%= @establishment.name %></p>
-      <p><%= @establishment.address %></p>
-      <div style=" height: 300px;"
-        data-controller="map"
-        data-map-markers-value="<%= @marker.to_json %>"
-        data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-      </div>
+  <div class="container map-contain">
+    <p><strong><%= @establishment.name %></strong></p>
+    <p><%= @establishment.address %></p>
+    <div class="map-esta" style=" height: 300px;"
+      data-controller="map"
+      data-map-markers-value="<%= @marker.to_json %>"
+      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
+  </div>
 
-
+</div>
 </div>
