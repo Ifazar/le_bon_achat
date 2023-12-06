@@ -84,12 +84,12 @@
       </div>
 
       <div class="map-info">
-        <p>Vos adresses proches de chez vous:</p>
+        <h3>Vos adresses proches de chez vous:</h3>
         <% @establishments.each do |establishment|%>
           <% next if establishment.id == 1 %>
           <ul>
             <li>
-              <%= link_to establishment.name, establishment_path(establishment), class:"" %>
+              <%= link_to establishment.name, establishment_path(establishment), class:"link_blue" %>
               <%= establishment.address %>
             </li>
           </ul>

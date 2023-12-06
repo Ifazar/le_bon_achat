@@ -1,7 +1,11 @@
 .reservation_deposits {
-  border: 1px solid;
   width: 100%;
-  height: auto;
-  background-color: #d8dad3;
+  height: 270px;
+  background-color: #ffffff;
   padding: 15px;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+.val_eta {
+  text-align: end;
 }

@@ -11,11 +11,18 @@ export default class extends Controller {
   updatePrice(event) {
 
     const hashTest = {
-      "Divertissement": [["Jeux/Jouet/Jeux de société"], ["Livre/BD/Manga"]],
-      "Electrique": [["Electroménager"], ["Télévision/Ecran/Enceinte"]],
-      "Mobilier": [["Canapé/Fauteuil"], ["Commode/Etagére"], ["Chaise"], ["Exterieur"]],
-      "Jardinage": [["Pot/Mobilier"], ["Outils"]],
-      "Sport": [["Vélo"], ["Matériel en tout genre"]],
+      "Décoration": [["Miroir"], ["Tableau"], ["Tapis"], ["Lustre"], ["Lampe"], ["Rideau"]],
+      "Electroménager": [["Réfrégirateur"], ["Lave-Linge"], ["Lave-Vaisselle"], ["Congélateur"], ["Aspirateur"], ["Micro-onde"]],
+      "Vélo": [["Vélo de course"], ["VTT"], ["Vélo électrique"], ["Vélo pour enfant"]],
+      "Bricolage": [["Divers"]],
+      "Jardin & Plantes": [["Divers"]],
+      "Ameublement": [["Table"], ["Canapé"], ["Chaise, Tabouret"], ["Lit"], ["Meuble"], ["Fauteuil"], ["Armoire"]],
+      "Mode": [["Divers"]],
+      "Electronique": [["Télévision"], ["Enceinte"], ["Casque audio"], ["Ecouteurs"], ["Téléphone"]],
+      "Jeux & Jouet": [["Jeux de société"], ["Jouet d'éveil"], ["Jeux de construction"], ["Puzzle"], ["Voiture éléctrique et circuit"], ["Porteur et Draisienne"]],
+      "Sport & Plein air": [["Divers"]],
+      "Loisirs créatifs": [["Divers"]],
+      "Livres / Mangas & BD": [["Divers"]],
     };
 
     function getKeyByValue(object, value) {
@@ -133,11 +140,18 @@ export default class extends Controller {
 
   updateSummary() {
     const hashTest = {
-      "Divertissement": [["Jeux/Jouet/Jeux de société"], ["Livre/BD/Manga"]],
-      "Electrique": [["Electroménager"], ["Télévision/Ecran/Enceinte"]],
-      "Mobilier": [["Canapé/Fauteuil"], ["Commode/Etagére"], ["Chaise"], ["Exterieur"]],
-      "Jardinage": [["Pot/Mobilier"], ["Outils"]],
-      "Sport": [["Vélo"], ["Matériel en tout genre"]],
+      "Décoration": [["Miroir"], ["Tableau"], ["Tapis"], ["Lustre"], ["Lampe"], ["Rideau"]],
+      "Electroménager": [["Réfrégirateur"], ["Lave-Linge"], ["Lave-Vaisselle"], ["Congélateur"], ["Aspirateur"], ["Micro-onde"]],
+      "Vélo": [["Vélo de course"], ["VTT"], ["Vélo électrique"], ["Vélo pour enfant"]],
+      "Bricolage": [["Divers"]],
+      "Jardin & Plantes": [["Divers"]],
+      "Ameublement": [["Table"], ["Canapé"], ["Chaise, Tabouret"], ["Lit"], ["Meuble"], ["Fauteuil"], ["Armoire"]],
+      "Mode": [["Divers"]],
+      "Electronique": [["Télévision"], ["Enceinte"], ["Casque audio"], ["Ecouteurs"], ["Téléphone"]],
+      "Jeux & Jouet": [["Jeux de société"], ["Jouet d'éveil"], ["Jeux de construction"], ["Puzzle"], ["Voiture éléctrique et circuit"], ["Porteur et Draisienne"]],
+      "Sport & Plein air": [["Divers"]],
+      "Loisirs créatifs": [["Divers"]],
+      "Livres / Mangas & BD": [["Divers"]],
     };
 
     function getKeyByValue(object, value) {

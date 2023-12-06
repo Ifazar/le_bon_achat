@@ -1,0 +1,8 @@
+.link_blue {
+  text-decoration: none;
+  color: #f44336;
+  &:hover {
+    color:#a51106;
+    transition:  0.9s ease;
+  }
+}
