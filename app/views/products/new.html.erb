@@ -6,6 +6,7 @@
       <%= t.input :title, label: "Nom de votre objet" %>
 
       <div data-action="click->calcul#updatePrice" id="category">
+      <label for="product_condition">Category..*</label>
         <%= t.select :category,
           {
             "Décoration" => [["Miroir"], ["Tableau"], ["Tapis"], ["Lustre"], ["Lampe"], ["Rideau"]],
@@ -23,7 +24,7 @@
           },
           selected: "Divertissement", class: "buttoneffect" %>
       </div>
-   
+
 
     <%= t.input :detail, label: "Détails descriptifs" %>
 
