@@ -36,18 +36,18 @@ end
 # Creating Products
 products_data = [
 
-  { title: "Old Radio", category: "Electronics", detail: "#", condition: "Used", price: 30, image:"https://res.cloudinary.com/diffnfduk/image/upload/v1701689528/raido1_udbenl.jpg" },
-  { title: "Wooden Chair", category: "Furniture", detail: "#", condition: "New", price: 45, image: "https://res.cloudinary.com/diffnfduk/image/upload/v1701783975/chaise1_gqguzi.jpg" },
-  { title: "Ruby Programming", category: "Books", detail: "#", condition: "New", price: 20, image:"https://res.cloudinary.com/diffnfduk/image/upload/v1701783972/rubycode1_lourmf.jpg" },
   { title: "Velo VTT", category: "Sport", detail: "#", condition: "Bon état", price: 35, image:"https://res.cloudinary.com/diffnfduk/image/upload/v1701766813/development/0tvoqmx8sfkp80635dl48im618ov.jpg" },
   { title: "Télé Samsung", category: "Electrique", detail: "#", condition: "Moyen", price: 50, image: "https://res.cloudinary.com/diffnfduk/image/upload/v1701783972/tele2_x4uqad.jpg" },
   { title: "Commode de lit", category: "Mobilier", detail: "#", condition: "Usagé", price: 5, image: "https://res.cloudinary.com/diffnfduk/image/upload/v1701783975/commode1_coiv8p.jpg" },
   { title: "Tondeuse à gazon", category: "Jardinage", detail: "#", condition: "Bon état", price: 60, image: "https://res.cloudinary.com/diffnfduk/image/upload/v1701783973/tondeuse1jpg_p0wpbp.jpg" },
   { title: "Collection de Spirou", category: "Divertissement", detail: "#", condition: "Usagé", price: 4, image:"https://res.cloudinary.com/diffnfduk/image/upload/v1701783976/livre4_d8lswq.jpg"},
+  { title: "Vieille Radio", category: "Electrique", detail: "#", condition: "Used", price: 30, image:"https://res.cloudinary.com/diffnfduk/image/upload/v1701689528/raido1_udbenl.jpg" },
+  { title: "Chaise en bois", category: "Fourniture", detail: "#", condition: "New", price: 45, image: "https://res.cloudinary.com/diffnfduk/image/upload/v1701783975/chaise1_gqguzi.jpg" },
+  { title: "Ruby Programming", category: "Livre", detail: "#", condition: "New", price: 20, image:"https://res.cloudinary.com/diffnfduk/image/upload/v1701783972/rubycode1_lourmf.jpg" },
   { title: "Mixeur de cuisine", category: "Electrique", detail: "#", condition: "Moyen", price: 10, image: "https://res.cloudinary.com/diffnfduk/image/upload/v1701783975/electromenage2_h1jarh.jpg" },
   { title: "Enceinte JBL", category: "Electrique", detail: "#", condition: "Très bon état", price: 90, image: "https://res.cloudinary.com/diffnfduk/image/upload/v1701783975/enceinte2_hkyfik.jpg" },
   { title: "Télé Sony", category: "Electrique", detail: "#", condition: "Bon état", price: 80, image: "https://res.cloudinary.com/diffnfduk/image/upload/v1701783973/tele1_vns5fu.jpg" },
-  { title: "Vélo de route", category: "SPort", detail: "#", condition: "Moyen", price: 20, image: "https://res.cloudinary.com/diffnfduk/image/upload/v1701783973/velo2_iyuqvt.jpg" },
+  { title: "Vélo de route", category: "Sport", detail: "#", condition: "Moyen", price: 20, image: "https://res.cloudinary.com/diffnfduk/image/upload/v1701783973/velo2_iyuqvt.jpg" },
   { title: "Canapé", category: "Mobilier", detail: "#", condition: "Très bon état", price: 60, image: "https://res.cloudinary.com/diffnfduk/image/upload/v1701783974/canape_zhrfir.jpg" },
   { title: "PS4", category: "Electrique", detail: "#", condition: "Moyen", price: 20, image: "https://res.cloudinary.com/diffnfduk/image/upload/v1701783972/ps4_jcbajy.jpg" },
   { title: "Fauteuil", category: "Mobilier", detail: "#", condition: "Bon état", price: 40, image: "https://res.cloudinary.com/diffnfduk/image/upload/v1701783975/fauteuil1_zu0kou.jpg" },
@@ -55,7 +55,17 @@ products_data = [
   { title: "Tronçoneuse", category: "Outils", detail: "#", condition: "Bon état", price: 30, image: "https://res.cloudinary.com/diffnfduk/image/upload/v1701783973/tronconneuse_g8wlfj.jpg" },
   { title: "Naruto", category: "Manga", detail: "#", condition: "Moyen", price: 4, image: "https://res.cloudinary.com/diffnfduk/image/upload/v1701783972/naruto1_oqrbp4.jpg" },
   { title: "One Piece", category: "Manga", detail: "#", condition: "Très bon état", price: 8, image: "https://res.cloudinary.com/diffnfduk/image/upload/v1701783972/onepiece_ofumyp.jpg" },
-  { title: "PC portable", category: "Electrique", detail: "#", condition: "Très bon état", price: 80, image: "https://res.cloudinary.com/diffnfduk/image/upload/v1701783972/ordinateur1_gcts3y.jpg" }
+  { title: "PC portable", category: "Electrique", detail: "#", condition: "Très bon état", price: 80, image: "https://res.cloudinary.com/diffnfduk/image/upload/v1701783972/ordinateur1_gcts3y.jpg" },
+  { title: "Jujutsu Kaisen", category: "Manga", detail: "#", condition: "Très bon état", price: "8", image: "https://res.cloudinary.com/diffnfduk/image/upload/v1701849650/images_i0zo9o.jpg" },
+  { title: "Lampe de bureau", category: "Décoration", detail: "#", condition: "Usage", price: "3", image: "https://res.cloudinary.com/diffnfduk/image/upload/v1701849650/images_1_lupkfn.jpg" },
+  { title: "Miroir", category: "Décoration", detail: "#", condition: "Bon état", price: "15", image: "https://res.cloudinary.com/diffnfduk/image/upload/v1701849650/images_2_ue5sca.jpg" },
+  { title: "Veste en cuir", category: "Mode", detail: "#", condition: "Bon état", price: "15", image: "https://res.cloudinary.com/diffnfduk/image/upload/v1701849650/images_3_vh1oq4.jpg" },
+  { title: "Sac Lacoste", category: "Mode", detail: "#", condition: "Moyen", price: "10", image: "https://res.cloudinary.com/diffnfduk/image/upload/v1701849650/images_4_mivdax.jpg" },
+  { title: "Service à thé", category: "Ameublement", detail: "#", condition: "Bon état", price: "15", image: "https://res.cloudinary.com/diffnfduk/image/upload/v1701849650/images_5_eg0l2f.jpg" },
+  { title: "Kapla", category: "Jeux", detail: "#", condition: "Moyen", price: "10", image: "https://res.cloudinary.com/diffnfduk/image/upload/v1701849650/images_6_ugtuz2.jpg" },
+  { title: "Circuit Voiture", category: "Jouet", detail: "#", condition: "Moyen", price: "5", image: "https://res.cloudinary.com/diffnfduk/image/upload/v1701849650/images_7_s90wnv.jpg" },
+  { title: "Dictionnaire Larousse 2017", category: "LIvre", detail: "#", condition: "Bon état", price: "10", image: "https://res.cloudinary.com/diffnfduk/image/upload/v1701849650/images_8_xvh1gt.jpg" },
+  { title: "Table basse", category: "Ameublement", detail: "#", condition: "Très bon état", price: "20", image: "https://res.cloudinary.com/diffnfduk/image/upload/v1701849650/images_9_giah0i.jpg" }
 ]
 products_data.each do |product_data|
   Product.create!(

@@ -25,31 +25,30 @@
           selected: "Divertissement", class: "buttoneffect" %>
       </div>
 
+      <%= t.input :detail, label: "Détails descriptifs" %>
 
-    <%= t.input :detail, label: "Détails descriptifs" %>
+      <div data-action="click->calcul#updatePrice" id="condition">
+      <label for="product_condition">Condition de l'objet..*</label>
+        <%= t.select :condition, ["Très Bon", "Bon", "Moyen", "Usagé"], {}, id: "condition" %>
+      </div>
 
-    <div data-action="click->calcul#updatePrice" id="condition">
-    <label for="product_condition">Condition de l'objet..*</label>
-      <%= t.select :condition, ["Très Bon", "Bon", "Moyen", "Usagé"], {}, id: "condition" %>
-    </div>
+      <div data-action="change->calcul#addPicture1" id="picture1">
+        <%= t.input :picture1, as: :file, label: "Photo de votre objet" %>
+      </div>
 
-    <div data-action="change->calcul#addPicture1" id="picture1">
-      <%= t.input :picture1, as: :file, label: "Photo de votre objet" %>
-    </div>
+      <div data-action="change->calcul#addPicture2" id="picture2">
+        <%= t.input :picture2, as: :file, label: "Photo de votre objet" %>
+      </div>
 
-    <div data-action="change->calcul#addPicture2" id="picture2">
-      <%= t.input :picture2, as: :file, label: "Photo de votre objet" %>
-    </div>
+      <div id="picture3">
+        <%= t.input :picture3, as: :file, label: "Photo de votre objet" %>
+      </div>
 
-    <div id="picture3">
-      <%= t.input :picture3, as: :file, label: "Photo de votre objet" %>
-    </div>
+      <%= t.hidden_field :price, id: "calculatedPriceInput" %>
+      <span id="priceDisplay" data-calcul-target="results"></span>
 
-    <%= t.hidden_field :price, id: "calculatedPriceInput" %>
-    <span id="priceDisplay" data-calcul-target="results"></span>
-
-    <button type="button" id="show-popup-button" data-action="click->calcul#showPopup">Afficher le récapitulatif</button>
-  <% end %>
+      <button type="button" id="show-popup-button" data-action="click->calcul#showPopup">Afficher le récapitulatif</button>
+    <% end %>
 
   <div class="refuse-button" id="refuse-button">
     <%= link_to "Annuler", root_path %>
