@@ -22,14 +22,14 @@
             "Loisirs créatifs" => [["Divers"]],
             "Livres / Mangas & BD" => [["Divers"]],
           },
-          selected: "Divertissement", class: "buttoneffect" %>
+          selected: "Divertissement" %>
       </div>
 
       <%= t.input :detail, label: "Détails descriptifs" %>
 
       <div data-action="click->calcul#updatePrice" id="condition">
       <label for="product_condition">Condition de l'objet..*</label>
-        <%= t.select :condition, ["Très Bon", "Bon", "Moyen", "Usagé"], {}, id: "condition" %>
+        <%= t.select :condition, ["Très Bon", "Bon", "Moyen", "Usagé"], {}, id: "condition"%>
       </div>
 
       <div data-action="change->calcul#addPicture1" id="picture1">
@@ -50,8 +50,10 @@
       <button type="button" id="show-popup-button" data-action="click->calcul#showPopup">Afficher le récapitulatif</button>
     <% end %>
 
-  <div class="refuse-button" id="refuse-button">
-    <%= link_to "Annuler", root_path %>
+  <div class="button-container">
+    <div class="refuse-button" id="refuse-button">
+      <%= link_to "Annuler", root_path, style: "color: white;"%>
+    </div>
   </div>
 
   <div id="overlay"></div>
@@ -90,14 +92,14 @@
 
 /* Styles pour déplacer les catégories déroulantes à droite */
 #category {
-  margin: auto;
+  margin: 0 auto;
   text-align: center;
   margin-bottom: 30px;
 }
 
 #category select {
-  width: 80%; /* Utilisez simplement une largeur de 80% sans calculs complexes */
-  padding: 10px 15px; /* Ajustez le padding pour un aspect plus équilibré */
+  width: 93%;
+  padding: 10px 15px;
   font-size: 16px;
   border: 2px solid #3498db;
   border-radius: 5px;
@@ -105,6 +107,8 @@
   color: #333;
   outline: none;
   transition: border-color 0.3s ease, background-color 0.3s ease;
+  line-height: 36px; /* Ajuste la hauteur de la ligne pour centrer le texte */
+  text-align: center; /* Centre le texte horizontalement */
 }
 
 #category select:hover,
@@ -113,10 +117,8 @@
   background-color: #ecf0f1;
 }
 
-  .buttoneffect{
-        text-align : center;
-        width: 360px;
-  }
+
+
 
 #condition {
   margin: 0 auto;
@@ -126,8 +128,9 @@
 
 
 #condition select {
-  width: 100%; /* Ajuste la largeur totale pour inclure le padding sur les côtés */
-  padding: 10px 40px; /* Ajoute du padding uniquement sur les côtés horizontaux */
+  width: 100%;
+  padding: 10px 40px;
+  margin: auto;
   font-size: 16px;
   border: 2px solid #3498db;
   border-radius: 5px;
@@ -135,13 +138,19 @@
   color: #333;
   outline: none;
   transition: border-color 0.3s ease, background-color 0.3s ease;
+  line-height: 36px; /* Ajuste la hauteur de la ligne pour centrer le texte */
+  text-align: center;
+  text-align-last: center; /* Ajoutez cette ligne */
 }
+
 
 #condition select:hover,
 #condition select:focus {
   border-color: #2980b9;
   background-color: #ecf0f1;
 }
+
+
 
 
 
@@ -383,7 +392,7 @@ input[type="button"] {
 }
 
 #show-popup-button {
-     background-color: #4CAF50;
+     background-color: #555555;
      color: white;
      padding: 15px 20px;
      font-size: 16px;
@@ -391,10 +400,13 @@ input[type="button"] {
      border-radius: 8px;
      cursor: pointer;
      transition: background-color 0.3s ease;
+     border: 2px solid white;
  }
 
  #show-popup-button:hover {
-     background-color: #45a049;
+     background-color: #555;
+     transition: 0.9s ease;
+     box-shadow:0 200px 100px -100px #887979 inset, 0 0 5px black;
  }
 
 </style>
