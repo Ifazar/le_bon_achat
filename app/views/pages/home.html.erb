@@ -1,58 +1,58 @@
 <div class="homepage_body">
-  <div class="info_container_left d-flex flex-column gap-20px ">
+  <div class="info_container_left d-flex flex-column gap-100px ">
 
+    <div class="d-flex">
 
-
-   <div class="d-flex">
-
-    <div>
-      <div class="ag-format-container">
+      <div class="">
+      <div class="ag-format-container ">
         <div class="ag-courses_box">
-          <div class="ag-courses_item">
+          <div class="ag-courses_item ">
           <a href="#" class="ag-courses-item_link">
             <div class="ag-courses-item_bg_left"></div>
             <div class="ag-courses-item_title">
               <h2>Notre Concept</h2>
               <div class="text" style="font-size: smaller;">
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatem ea neque itaque sint a. Quasi a dignissimos, dolore provident tenetur illum autem deserunt harum vitae in explicabo minima distinctio rerum!</p>
+                <p><strong>Le Bon Achat</strong> est née d'un mouvement écoresponsable, social et économique.</p>
+                <p>Recevez des <strong>bons avantages</strong> en donnant une seconde vie à tout ce dont vous n'avez plus l'utilité</p>
+                <p>Utilisez ces bons chez nous ou dans les grandes enseignes partenaires</p>
               </div>
             </div>
           </a>
           </div>
         </div>
       </div>
-    </div>
-    <div>
-      <%= image_tag("https://res.cloudinary.com/diffnfduk/image/upload/v1701792675/ressourcerie_kfeftk.jpg", :type => "fetch") %>
-    </div>
+      </div>
+      <%# <div>
+        <%= image_tag("https://res.cloudinary.com/diffnfduk/image/upload/v1701792675/ressourcerie_kfeftk.jpg", :type => "fetch") %>
+      <%# </div> %>
 
     </div>
-   <div class="d-flex">
 
-    <div>
-      <p>image</p>
-    </div>
-    <div>
-      <div class="ag-format-container">
-        <div class="ag-courses_box">
-          <div class="ag-courses_item">
-          <a href="#" class="ag-courses-item_link">
-            <div class="ag-courses-item_bg_right"></div>
-            <div class="ag-courses-item_title">
-              <h2>Les coupons</h2>
-              <div class="text" style="font-size: smaller;">
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatem ea neque itaque sint a. Quasi a dignissimos, dolore provident tenetur illum autem deserunt harum vitae in explicabo minima distinctio rerum!</p>
+    <div class="d-flex">
+
+      <div class="">
+        <div class="ag-format-container">
+          <div class="ag-courses_box">
+            <div class="ag-courses_item">
+            <a href="#" class="ag-courses-item_link">
+              <div class="ag-courses-item_bg_right"></div>
+              <div class="ag-courses-item_title">
+                <h2>Les coupons</h2>
+                <div class="text" style="font-size: smaller;">
+                  <p>Les bons sont représentés en forme de <strong>coupons</strong>.</p>
+                  <p>En déposant vos biens, cumulez des coupons.</p>
+                  <p>Atteignez jusqu'à <strong>100€</strong> de coupons, en fonction de la catégorie et de l'état.</p>
+                </div>
               </div>
+            </a>
             </div>
-          </a>
           </div>
         </div>
       </div>
-    </div>
     </div>
 
     <div class="mt-6">
-      <h2>Nos Articles disponible</h2>
+      <h2>En Stock près de chez vous</h2>
     </div>
 
     <div class="carousel_container" data-controller="carousel">
@@ -64,7 +64,7 @@
           <% @products.limit(9).each do |product| %>
             <figure style="display: flex; background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.2)), url(<%= product.image %>)">
               <h5><%= link_to product.title, establishment_path(product.establishment), class:"carous-deco" %></h5>
-              <p class="test"><%= product.price %>€</p>
+              <p class="prix_carous"><%= product.price %>€</p>
             </figure>
           <% end %>
         </div>
@@ -73,8 +73,6 @@
       </div>
     </div>
   </div>
-
-
 
   <div class="map_container_home">
       <div id="map" style="width: 100%; height: 300px;"
