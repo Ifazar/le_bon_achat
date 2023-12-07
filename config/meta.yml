@@ -6,7 +6,6 @@ meta_title : « Le Bon Achat – Déposez vos objets au lieu de les jetter »
 
 meta_description : « En déposant vos objets, vous contribuez à un système de recyclerie éco-responsable et pourrez obtenir des coupons pour vos achats. »
 
-meta_image : "cover.png" # devrait exister dans `app/assets/images/`
+meta_image : "Le bon achat.png" # devrait exister dans `app/assets/images/`
 
-twitter_account : « @product_twitter_account » # requis pour les cartes Twitter
-
+twitter_account : « @lebonachat_twitter_account » # requis pour les cartes Twitter
