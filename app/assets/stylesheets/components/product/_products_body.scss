@@ -2,6 +2,8 @@
   // display: flex;
   justify-content: center;
   align-items: center;
+  flex-grow: 1;
+  margin: 50px 0;
 }
 
 /* Style pour le conteneur récapitulatif */
@@ -27,12 +29,20 @@
   margin: 10px 0;
 }
 
+
+.btn-wrapper {
+  display:flex;
+  flex-direction: row-reverse;
+  gap:10px;
+  width: 100%;
+}
+
 .btn_deposits {
-  margin-top: 20px;
+  // margin-top: 20px;
   padding: 10px 20px;
   border-radius: 5px;
   cursor: pointer;
-  width: max-content;
+  // width: max-content;
   margin: auto;
 
   border: 2px solid white;

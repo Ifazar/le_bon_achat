@@ -14,7 +14,7 @@ export default class extends Controller {
       btn.addEventListener('click', (event) => {
         const direction = event.currentTarget.textContent;
 
-        if (direction === 'prev') {
+        if (direction === '◀') {
           this.cur += this.increment;
         } else {
           this.cur -= this.increment;
